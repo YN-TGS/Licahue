@@ -1,0 +1,1412 @@
+/* ==========================================================================
+   Hotel y Cabañas Licahue — hoja de estilos única
+   Paleta y tipografía tomadas del sitio original (ver _fuentes/DISENO.md)
+   ========================================================================== */
+
+:root {
+  /* Colores del sitio original */
+  --negro-900:   #141414;   /* barra inferior del pie */
+  --negro-800:   #191919;   /* encabezado y cuerpo del pie */
+  --negro-700:   #2c2c2c;
+  --tinta:       #232323;   /* color de texto base */
+  --gris:        #787878;   /* texto secundario */
+  --gris-borde:  #818a91;
+  --gris-suave:  #f5f5f7;   /* fondos alternados */
+  --blanco:      #ffffff;
+  --dorado:      #e2c275;   /* acento de marca */
+  --terracota:   #c36a2d;   /* acento de enlaces y estados hover */
+
+  /* Tipografía */
+  --fuente: "Poppins", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --serif:  "Lora", Georgia, "Times New Roman", serif;
+
+  /* Medidas */
+  --ancho-max:     1140px;
+  --gutter:        20px;
+  --alto-logo:     57px;
+  --alto-cabecera: 110px;   /* logo 57px + 26px de relleno arriba y abajo */
+}
+
+/* --------------------------------------------------------------- base --- */
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--blanco);
+  color: var(--tinta);
+  font-family: var(--fuente);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a { color: var(--terracota); }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--fuente);
+  line-height: 1.25;
+  text-wrap: balance;
+  margin: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--dorado);
+  outline-offset: 3px;
+}
+
+/* Contenedor central, usado por el encabezado, las secciones y el pie */
+.contenedor {
+  width: 100%;
+  max-width: var(--ancho-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* Salto al contenido, para teclado y lectores de pantalla */
+.salto-contenido {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--dorado);
+  color: var(--negro-800);
+  padding: 12px 20px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.salto-contenido:focus {
+  left: 0;
+}
+
+/* Texto solo para lectores de pantalla */
+.vo {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Iconos en línea */
+.icono {
+  width: 1em;
+  height: 1em;
+  flex: none;
+  fill: currentColor;
+}
+
+/* Botones. El bloque base va ANTES que sus variantes: tienen la misma
+   especificidad, así que gana la que se declara última. */
+.boton {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--terracota);
+  color: var(--blanco);
+  font-family: var(--fuente);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1;
+  padding: 16px 28px;
+  border: 1px solid var(--terracota);
+  border-radius: 2px;
+  text-decoration: none;
+  transition: background .3s, color .3s, border-color .3s;
+}
+.boton:hover,
+.boton:focus-visible {
+  background: transparent;
+  color: var(--dorado);
+  border-color: var(--dorado);
+}
+.boton .icono { width: 16px; height: 16px; }
+
+/* ==========================================================================
+   ENCABEZADO
+   ========================================================================== */
+
+.cabecera {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--negro-800);
+  color: var(--blanco);
+}
+
+.cabecera__interior {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-block: 26px;
+}
+
+/* --- marca: logotipo y teléfono --- */
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  min-width: 0;
+}
+
+.marca__logo {
+  display: block;
+  flex: none;
+}
+
+.marca__logo img {
+  height: var(--alto-logo);
+  width: auto;
+}
+
+.marca__telefono {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--blanco);
+  font-size: 15px;
+  text-decoration: none;
+  text-shadow: 0 0 10px rgba(0, 0, 0, .3);
+  white-space: nowrap;
+  transition: color .3s;
+}
+.marca__telefono:hover,
+.marca__telefono:focus-visible { color: var(--terracota); }
+
+.marca__telefono .icono {
+  width: 12px;
+  height: 12px;
+  color: var(--blanco);
+  transition: color .3s;
+}
+.marca__telefono:hover .icono { color: var(--terracota); }
+
+/* --- menú --- */
+
+.menu__lista {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu__enlace {
+  display: block;
+  color: var(--blanco);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-decoration: none;
+  padding-block: 6px;
+  transition: color .3s;
+}
+.menu__enlace:hover,
+.menu__enlace:focus-visible { color: var(--terracota); }
+
+/* Interruptor del menú en pantallas angostas.
+   Sin JavaScript: una casilla oculta a la vista pero accesible con teclado. */
+.menu__interruptor {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.menu__boton {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  color: var(--blanco);
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 4px;
+  user-select: none;
+}
+.menu__boton .icono { width: 20px; height: 20px; }
+.menu__boton .icono--cerrar { display: none; }
+
+/* ==========================================================================
+   SECCIONES
+   ========================================================================== */
+
+.seccion {
+  /* deja aire para que el encabezado fijo no tape el título al saltar */
+  scroll-margin-top: var(--alto-cabecera);
+  padding-block: 80px;
+}
+
+.seccion:nth-of-type(even) { background: var(--gris-suave); }
+
+.seccion__titulo {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.seccion__bajada {
+  color: var(--gris);
+  font-size: 18px;
+  margin: 0 0 32px;
+  max-width: 62ch;
+}
+
+/* ==========================================================================
+   PORTADA
+   ========================================================================== */
+
+/* La portada rompe el patrón de .seccion: es a todo el ancho y sin relleno.
+   El fondo queda blanco: el oscuro es solo del bloque de la foto, no de
+   toda la sección, porque debajo va «Conózcanos» con texto oscuro. */
+.portada {
+  padding: 0;
+  background: var(--blanco);
+}
+
+.portada__imagen {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 60vh;
+  max-height: 760px;
+  padding-block: 90px;
+  background-color: var(--negro-800);
+  background-image: url("../img/portada-azaleas.jpg");
+  background-size: cover;
+  background-position: center 60%;
+  text-align: center;
+  color: var(--blanco);
+}
+
+/* velo oscuro para que el texto se lea sobre la foto */
+.portada__imagen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(20, 20, 20, .55), rgba(20, 20, 20, .68));
+}
+
+.portada__texto {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+}
+
+.portada__saludo {
+  font-family: var(--serif);
+  font-size: clamp(22px, 3.4vw, 32px);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--dorado);
+}
+
+.portada__titulo {
+  font-size: clamp(32px, 6vw, 57px);
+  font-weight: 600;
+  letter-spacing: -.01em;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, .45);
+}
+
+.portada__lugar {
+  font-size: clamp(15px, 2vw, 18px);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .85);
+  margin: 0;
+}
+
+.portada__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+/* --- bloque «Conózcanos» --- */
+
+.conozcanos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 56px;
+  padding-block: 80px;
+}
+
+.conozcanos__cuerpo { min-width: 0; }
+.conozcanos__figura { margin: 0; }
+
+.conozcanos__figura img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  max-width: 100%;
+}
+
+.conozcanos__figura figcaption {
+  font-size: 14px;
+  color: var(--gris);
+  padding-top: 10px;
+}
+
+.conozcanos__titulo {
+  font-size: clamp(26px, 3.6vw, 36px);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.conozcanos p {
+  margin: 0 0 16px;
+  max-width: 58ch;
+}
+.conozcanos p:last-child { margin-bottom: 0; }
+
+.destacado {
+  color: var(--tinta);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+/* ==========================================================================
+   TARIFAS
+   ========================================================================== */
+
+.tarifas__encabezado {
+  text-align: center;
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  margin-bottom: 48px;
+}
+
+.tarifas__periodo {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(19px, 2.6vw, 25px);
+  color: var(--terracota);
+}
+
+.tarifas__moneda {
+  font-size: 15px;
+  color: var(--gris);
+  margin: 0;
+}
+
+.tarifas__moneda strong {
+  color: var(--tinta);
+  font-weight: 500;
+}
+
+/* --- las tres tarjetas --- */
+
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  align-items: stretch;
+}
+
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  background: var(--blanco);
+  border: 1px solid #e4e6e8;
+  border-top: 3px solid var(--dorado);
+  padding: 32px 28px;
+}
+
+.tarjeta__nombre {
+  font-size: 21px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.tarjeta__capacidad {
+  font-size: 14px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--terracota);
+  margin: 0 0 18px;
+}
+
+.tarjeta__texto {
+  margin: 0 0 18px;
+  font-size: 15px;
+  color: var(--gris);
+}
+
+.tarjeta__incluye {
+  list-style: none;
+  margin: 0 0 24px;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+  font-size: 15px;
+}
+
+.tarjeta__incluye li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.tarjeta__incluye .icono {
+  width: 13px;
+  height: 13px;
+  margin-top: .42em;
+  color: var(--dorado);
+}
+
+/* empuja el precio y el botón al fondo, para que todas las tarjetas
+   terminen a la misma altura por más que el texto varíe */
+.tarjeta__precio { margin-top: auto; }
+
+.precios {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  margin-bottom: 22px;
+}
+
+.precios caption {
+  caption-side: top;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gris);
+  padding-bottom: 10px;
+}
+
+.precios th,
+.precios td {
+  text-align: right;
+  padding: 7px 0;
+  border-bottom: 1px solid #ececee;
+  font-variant-numeric: tabular-nums;
+}
+
+.precios thead th {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--gris);
+}
+
+.precios th:first-child,
+.precios td:first-child {
+  text-align: left;
+  font-weight: 400;
+  color: var(--gris);
+}
+
+.precios tbody td {
+  font-weight: 600;
+  color: var(--tinta);
+}
+
+.precios tbody tr:last-child th,
+.precios tbody tr:last-child td { border-bottom: 0; }
+
+/* variante de botón para las tarjetas */
+.boton--linea {
+  background: transparent;
+  color: var(--terracota);
+  border-color: var(--terracota);
+  justify-content: center;
+  width: 100%;
+}
+.boton--linea:hover,
+.boton--linea:focus-visible {
+  background: var(--terracota);
+  color: var(--blanco);
+  border-color: var(--terracota);
+}
+
+/* variante clara, para usar sobre la foto de portada */
+.boton--claro {
+  background: transparent;
+  color: var(--blanco);
+  border-color: rgba(255, 255, 255, .55);
+}
+.boton--claro:hover,
+.boton--claro:focus-visible {
+  background: var(--blanco);
+  color: var(--negro-800);
+  border-color: var(--blanco);
+}
+
+/* --- servicios adicionales --- */
+
+.extras {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-top: 28px;
+}
+
+.extra {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  align-items: center;
+  gap: 0;
+  background: var(--blanco);
+  border: 1px solid #e4e6e8;
+  overflow: hidden;
+}
+
+.extra__figura {
+  margin: 0;
+  height: 100%;
+  min-height: 150px;
+  background: var(--gris-suave);
+}
+
+.extra__figura img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.extra__cuerpo { padding: 24px 26px; }
+
+.extra__nombre {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.extra__precio {
+  font-size: 15px;
+  margin: 0;
+  color: var(--tinta);
+  font-variant-numeric: tabular-nums;
+}
+.extra__precio strong { font-weight: 600; }
+
+.extra__nota {
+  font-size: 14px;
+  color: var(--gris);
+  margin: 8px 0 0;
+}
+
+/* sin foto: la columna de imagen no se dibuja */
+.extra--sin-foto { grid-template-columns: 1fr; }
+
+/* ==========================================================================
+   ALOJAMIENTOS
+   ========================================================================== */
+
+.alojamientos {
+  display: grid;
+  gap: 64px;
+  margin-top: 8px;
+}
+
+.alojamiento {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 48px;
+}
+
+/* en el segundo bloque la foto pasa a la derecha, para dar ritmo a la lectura */
+.alojamiento:nth-child(even) .alojamiento__figura { order: 2; }
+
+.alojamiento__figura { margin: 0; }
+
+.alojamiento__figura img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.alojamiento__cuerpo { min-width: 0; }
+
+.alojamiento__nombre {
+  font-size: clamp(22px, 2.8vw, 28px);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.alojamiento__capacidad {
+  font-size: 14px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--terracota);
+  margin: 0 0 14px;
+}
+
+.alojamiento__composicion {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--tinta);
+  margin: 0 0 14px;
+  padding-left: 14px;
+  border-left: 2px solid var(--dorado);
+}
+
+.alojamiento__texto {
+  margin: 0 0 16px;
+  color: var(--gris);
+  max-width: 54ch;
+}
+
+.alojamiento__desde {
+  margin: 0 0 24px;
+  font-size: 15px;
+  color: var(--gris);
+  font-variant-numeric: tabular-nums;
+}
+
+.alojamiento__desde strong {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--terracota);
+}
+
+/* --- incluye / no incluye --- */
+
+.servicios {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.servicios__titulo {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gris);
+  margin-bottom: 10px;
+}
+
+.servicios ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 7px;
+  font-size: 15px;
+}
+
+.servicios li {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+}
+
+.servicios .icono {
+  width: 13px;
+  height: 13px;
+  margin-top: .42em;
+}
+
+.servicios--incluye .icono { color: var(--dorado); }
+
+.servicios--excluye { color: var(--gris); }
+.servicios--excluye .icono { color: #c9ccd0; }
+
+/* --- condiciones comunes a los tres --- */
+
+.condiciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 40px;
+  margin-top: 56px;
+  padding-top: 28px;
+  border-top: 1px solid #e0e2e5;
+}
+
+.condicion {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  font-size: 15px;
+  color: var(--gris);
+  flex: 1 1 260px;
+}
+
+.condicion .icono {
+  width: 15px;
+  height: 15px;
+  margin-top: .42em;
+  color: var(--terracota);
+}
+
+.condicion strong {
+  color: var(--tinta);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   NOSOTROS
+   ========================================================================== */
+
+.kicker {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(18px, 2.4vw, 22px);
+  color: var(--terracota);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.acerca {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  align-items: start;
+  gap: 48px;
+  margin-top: 36px;
+}
+
+.acerca__figura { margin: 0; }
+
+.acerca__figura img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.acerca__figura figcaption {
+  font-size: 14px;
+  color: var(--gris);
+  padding-top: 10px;
+}
+
+.acerca__cuerpo { min-width: 0; }
+.acerca__cuerpo h3 {
+  font-size: clamp(21px, 2.6vw, 26px);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.acerca__cuerpo p {
+  margin: 0 0 14px;
+  color: var(--gris);
+}
+.acerca__cuerpo p:last-child { margin-bottom: 0; }
+
+/* --- qué nos destaca --- */
+
+.destaca {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 64px;
+  padding-top: 48px;
+  border-top: 1px solid #e0e2e5;
+}
+
+.destaca__item {
+  display: grid;
+  justify-items: start;
+  /* sin esto, las filas automáticas se estiran para llenar la altura del
+     bloque más alto y el título del bloque corto queda desalineado */
+  align-content: start;
+  gap: 8px;
+}
+
+.destaca__icono {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--dorado);
+  border-radius: 50%;
+  color: var(--terracota);
+  margin-bottom: 4px;
+}
+.destaca__icono .icono { width: 19px; height: 19px; }
+
+.destaca__nombre {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.destaca__texto {
+  margin: 0;
+  font-size: 15px;
+  color: var(--gris);
+}
+
+/* --- cifras --- */
+
+.cifras {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 56px;
+  padding-block: 40px;
+  border-block: 1px solid #e0e2e5;
+  text-align: center;
+}
+
+.cifra { min-width: 0; }
+
+.cifra__numero {
+  font-size: clamp(34px, 5vw, 48px);
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--terracota);
+  font-variant-numeric: tabular-nums;
+}
+
+.cifra__texto {
+  margin: 4px 0 0;
+  font-size: 15px;
+  color: var(--gris);
+}
+
+/* --- misión y visión --- */
+
+.proposito {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 56px;
+}
+
+.proposito__bloque {
+  border-left: 2px solid var(--dorado);
+  padding-left: 22px;
+}
+
+.proposito__titulo {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.proposito__bloque p {
+  margin: 0 0 12px;
+  color: var(--gris);
+  font-size: 15px;
+}
+.proposito__bloque p:last-child { margin-bottom: 0; }
+
+/* --- lo que ofrece el hotel --- */
+
+.ofrece {
+  margin-top: 56px;
+  padding-top: 40px;
+  border-top: 1px solid #e0e2e5;
+}
+
+.ofrece__titulo {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gris);
+  margin-bottom: 20px;
+}
+
+.ofrece ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px 32px;
+  font-size: 15px;
+}
+
+.ofrece li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.ofrece .icono {
+  width: 13px;
+  height: 13px;
+  margin-top: .42em;
+  color: var(--dorado);
+}
+
+/* --- testimonios --- */
+
+.testimonios {
+  margin-top: 56px;
+  padding-top: 40px;
+  border-top: 1px solid #e0e2e5;
+}
+
+.testimonios__titulo {
+  font-size: clamp(21px, 2.6vw, 26px);
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.testimonios__lista {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.testimonio {
+  background: var(--blanco);
+  border: 1px solid #e4e6e8;
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  height: 100%;
+}
+
+.testimonio blockquote {
+  margin: 0;
+  font-size: 15px;
+  color: var(--gris);
+  flex: 1;
+}
+
+.testimonio blockquote::before {
+  content: "\201C";
+  font-family: var(--serif);
+  font-size: 40px;
+  line-height: 0;
+  color: var(--dorado);
+  vertical-align: -.18em;
+  margin-right: 4px;
+}
+
+.testimonio figcaption {
+  font-size: 14px;
+  color: var(--tinta);
+  border-top: 1px solid #ececee;
+  padding-top: 12px;
+}
+
+.testimonio figcaption span {
+  display: block;
+  color: var(--gris);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ==========================================================================
+   IMPERDIBLES
+   ========================================================================== */
+
+.lugares {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  align-items: stretch;
+}
+
+.lugar {
+  background: var(--blanco);
+  border: 1px solid #e4e6e8;
+  border-top: 3px solid var(--dorado);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.lugar__icono {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  background: var(--gris-suave);
+  border-radius: 50%;
+  color: var(--terracota);
+}
+.lugar__icono .icono { width: 22px; height: 22px; }
+
+.lugar__nombre {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.lugar p {
+  margin: 0;
+  font-size: 15px;
+  color: var(--gris);
+}
+
+/* ==========================================================================
+   CONTACTO
+   ========================================================================== */
+
+.contacto {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-top: 36px;
+  align-items: start;
+}
+
+.datos {
+  display: grid;
+  gap: 24px;
+}
+
+.dato {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.dato__icono {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--dorado);
+  border-radius: 50%;
+  color: var(--terracota);
+}
+.dato__icono .icono { width: 18px; height: 18px; }
+
+.dato__titulo {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gris);
+  margin-bottom: 3px;
+}
+
+.dato__valor {
+  margin: 0;
+  font-size: 17px;
+  color: var(--tinta);
+}
+
+.dato__valor a {
+  color: var(--tinta);
+  text-decoration: none;
+  border-bottom: 1px solid var(--dorado);
+  transition: color .3s, border-color .3s;
+}
+.dato__valor a:hover,
+.dato__valor a:focus-visible {
+  color: var(--terracota);
+  border-color: var(--terracota);
+}
+
+.dato__nota {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: var(--gris);
+}
+
+/* --- panel de acciones --- */
+
+.escribenos {
+  background: var(--blanco);
+  border: 1px solid #e4e6e8;
+  border-top: 3px solid var(--dorado);
+  padding: 34px 30px;
+}
+
+.escribenos__titulo {
+  font-size: 21px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.escribenos p {
+  margin: 0 0 22px;
+  font-size: 15px;
+  color: var(--gris);
+}
+
+.escribenos__acciones {
+  display: grid;
+  gap: 12px;
+}
+
+/* ==========================================================================
+   PIE
+   ========================================================================== */
+
+/* --- franja de llamada a la acción --- */
+
+.pie-llamado {
+  background: var(--negro-800);
+  color: var(--blanco);
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+
+.pie-llamado__interior {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding-block: 35px;
+}
+
+.pie-llamado__texto {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 25px;
+  font-weight: 500;
+  margin: 0;
+}
+.pie-llamado__texto .icono {
+  width: 34px;
+  height: 34px;
+  color: var(--dorado);
+}
+
+
+/* --- cuerpo del pie, cuatro columnas --- */
+
+.pie {
+  background: var(--negro-800);
+  color: var(--gris);
+  font-size: 15px;
+}
+
+.pie__interior {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.3fr;
+  gap: 40px;
+  padding-block: 65px 60px;
+}
+
+/* min-width:0 evita que una palabra larga desborde su columna de la grilla */
+.pie__columna { min-width: 0; }
+
+.pie__logo { display: inline-block; margin-bottom: 20px; }
+.pie__logo img { height: var(--alto-logo); width: auto; }
+
+.pie__descripcion {
+  margin: 0 0 20px;
+  color: var(--gris);
+  max-width: 34ch;
+}
+
+.pie__titulo {
+  color: var(--blanco);
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.pie__lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 15px;
+}
+
+.pie__enlace {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--gris);
+  text-decoration: none;
+  transition: color .3s;
+}
+.pie__enlace:hover,
+.pie__enlace:focus-visible { color: var(--dorado); }
+
+.pie__enlace .icono {
+  width: 14px;
+  height: 14px;
+  margin-top: .45em;   /* alinea el icono con la primera línea del texto */
+  color: var(--terracota);
+  transition: color .3s;
+}
+.pie__enlace:hover .icono { color: var(--dorado); }
+
+/* --- redes sociales --- */
+
+.redes {
+  display: flex;
+  gap: 12px;
+}
+
+.redes__enlace {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(255, 255, 255, .2);
+  border-radius: 50%;
+  color: var(--blanco);
+  text-decoration: none;
+  transition: background .3s, border-color .3s, color .3s;
+}
+.redes__enlace:hover,
+.redes__enlace:focus-visible {
+  background: var(--terracota);
+  border-color: var(--terracota);
+  color: var(--blanco);
+}
+.redes__enlace .icono { width: 16px; height: 16px; }
+
+/* --- barra inferior --- */
+
+.pie-legal {
+  background: var(--negro-900);
+  color: var(--gris);
+  font-size: 15px;
+  text-align: center;
+}
+.pie-legal p {
+  margin: 0;
+  padding-block: 25px;
+}
+
+/* ==========================================================================
+   ADAPTACIÓN A PANTALLAS ANGOSTAS
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .pie__interior {
+    grid-template-columns: 1fr 1fr;
+    gap: 44px 40px;
+  }
+}
+
+@media (max-width: 860px) {
+  .cabecera__interior {
+    flex-wrap: wrap;
+    padding-block: 18px;
+  }
+
+  .menu__boton { display: inline-flex; }
+
+  /* El menú se despliega debajo, ocupando todo el ancho.
+     Quien se oculta es el <nav>, que sí es hermano de la casilla. */
+  .menu {
+    display: none;
+    width: 100%;
+    order: 3;
+    border-top: 1px solid rgba(255, 255, 255, .12);
+    margin-top: 14px;
+    padding-top: 6px;
+  }
+
+  .menu__lista {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .menu__interruptor:checked ~ .menu { display: block; }
+  .menu__interruptor:checked ~ .menu__boton .icono--abrir { display: none; }
+  .menu__interruptor:checked ~ .menu__boton .icono--cerrar { display: block; }
+  .menu__interruptor:focus-visible ~ .menu__boton {
+    outline: 2px solid var(--dorado);
+    outline-offset: 3px;
+  }
+
+  .menu__enlace {
+    padding-block: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, .07);
+  }
+  .menu__lista li:last-child .menu__enlace { border-bottom: 0; }
+
+  .seccion { padding-block: 56px; }
+
+  .portada { padding: 0; }
+  .portada__imagen { min-height: 0; padding-block: 64px; }
+
+  .conozcanos {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-block: 56px;
+  }
+
+  .tarjetas { grid-template-columns: 1fr; gap: 20px; }
+  .extras { grid-template-columns: 1fr; gap: 20px; }
+
+  .alojamientos { gap: 48px; }
+  .alojamiento { grid-template-columns: 1fr; gap: 24px; }
+  /* apilados, la foto va siempre arriba */
+  .alojamiento:nth-child(even) .alojamiento__figura { order: 0; }
+
+  .acerca { grid-template-columns: 1fr; gap: 28px; }
+  .destaca { grid-template-columns: 1fr; gap: 28px; margin-top: 44px; padding-top: 36px; }
+  .cifras { grid-template-columns: 1fr; gap: 28px; margin-top: 40px; }
+  .proposito { grid-template-columns: 1fr; gap: 28px; margin-top: 40px; }
+  .ofrece ul { grid-template-columns: 1fr 1fr; }
+  .testimonios__lista { grid-template-columns: 1fr; }
+  .lugares { grid-template-columns: 1fr; gap: 20px; }
+  .contacto { grid-template-columns: 1fr; gap: 32px; }
+
+  .pie-llamado__texto { font-size: 21px; }
+  .pie-llamado__interior { padding-block: 28px; }
+}
+
+@media (max-width: 560px) {
+  :root { --alto-logo: 44px; }
+
+  .marca {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .pie__interior {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding-block: 48px 44px;
+  }
+
+  .pie-llamado__texto { font-size: 19px; }
+  .pie-llamado__texto .icono { width: 26px; height: 26px; }
+  .boton { width: 100%; justify-content: center; }
+
+  .portada__acciones { width: 100%; }
+  .tarjeta { padding: 26px 22px; }
+
+  /* la foto del extra pasa arriba y el texto debajo */
+  .extra { grid-template-columns: 1fr; }
+  .extra__figura { min-height: 180px; }
+
+  .ofrece ul { grid-template-columns: 1fr; }
+  .dato { grid-template-columns: 1fr; gap: 10px; }
+  .escribenos { padding: 26px 22px; }
+}

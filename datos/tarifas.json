@@ -1,0 +1,76 @@
+{
+  "_leeme": "Este archivo manda sobre los precios del sitio. Editar aquí, no en index.html. Los mismos valores están escritos en el HTML como respaldo para cuando la página se abre sin servidor: después de editar, correr verificar-datos.py para confirmar que ambos coinciden.",
+
+  "temporada": "Verano: enero – febrero 2026",
+  "procedencia": "Tomado de la portada de www.licahue.cl el 15 de septiembre de 2026, que es el dato más reciente que sobrevive en línea. Sin confirmar con el hotel.",
+
+  "moneda": "CLP",
+  "simbolo": "$",
+  "nota": "Valores en pesos chilenos (CLP) por noche. <strong>IVA incluido.</strong>",
+  "meses": ["Enero", "Febrero"],
+
+  "alojamientos": [
+    {
+      "id": "matrimonial",
+      "encabezado": "Tipo",
+      "filas": [
+        { "etiqueta": "2 personas", "precios": [49000, 54000] }
+      ]
+    },
+    {
+      "id": "departamentos",
+      "encabezado": "Ubicación",
+      "filas": [
+        { "etiqueta": "Segundo piso", "precios": [65000, 69000] },
+        { "etiqueta": "Primer piso",  "precios": [60000, 65000] }
+      ]
+    },
+    {
+      "id": "cabanas",
+      "encabezado": "Capacidad",
+      "filas": [
+        { "etiqueta": "4 a 5 personas", "precios": [65000, 69000] },
+        { "etiqueta": "2 a 3 personas", "precios": [55000, 59000] }
+      ]
+    }
+  ],
+
+  "extras": [
+    {
+      "id": "jacuzzi",
+      "nombre": "Jacuzzi",
+      "imagen": "img/jacuzzi.jpg",
+      "alt": "Jacuzzi de madera con ventanales hacia el bosque y el lago",
+      "ancho": 1000,
+      "alto": 671,
+      "precios": [
+        { "valor": 30000, "detalle": "hasta 2 personas" },
+        { "valor": 40000, "detalle": "hasta 4 personas" }
+      ],
+      "nota": "Valores por cada 90 minutos."
+    },
+    {
+      "id": "kayak",
+      "nombre": "Arriendo de kayak",
+      "imagen": null,
+      "precios": [
+        { "valor": 10000, "detalle": "por hora" }
+      ],
+      "nota": "Sin costo para quienes se alojan en las cabañas."
+    }
+  ],
+
+  "condiciones": [
+    { "icono": "reloj",  "texto": "<strong>Check-in</strong> desde las 14:00 · <strong>Check-out</strong> hasta las 11:00" },
+    { "icono": "aviso",  "texto": "No se permiten fiestas." },
+    { "icono": "volver", "texto": "Para reembolso se necesitan <strong>5 días</strong> de anticipación." }
+  ],
+
+  "_historico_2024": {
+    "_nota": "Valores que traían las páginas individuales de cada alojamiento en la captura del 22 de febrero de 2024. Se conservan solo como referencia: NO se publican, porque contradicen las tarifas vigentes de más arriba. Sirven para que el hotel compare al confirmar.",
+    "matrimonial_desde": 49000,
+    "departamentos_desde": 58000,
+    "cabanas_desde": 68000,
+    "tinajas": { "2_personas_hora": 25000, "4_personas_hora": 35000, "_nota": "Servicio que figuraba en 2024 y ya no aparece en la portada vigente. Confirmar si sigue existiendo." }
+  }
+}

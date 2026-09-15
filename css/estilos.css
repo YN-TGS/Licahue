@@ -431,6 +431,118 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
 }
 
+/* --- oferta destacada --- */
+
+.oferta {
+  background: var(--negro-800);
+  color: var(--blanco);
+  border-top: 3px solid var(--dorado);
+  padding: 34px 32px;
+  margin-bottom: 44px;
+  display: grid;
+  gap: 24px;
+}
+
+.oferta[hidden] { display: none; }
+
+.oferta__cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 16px;
+}
+
+.oferta__etiqueta {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--negro-800);
+  background: var(--dorado);
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+
+.oferta__titulo {
+  font-family: var(--serif);
+  font-size: clamp(24px, 3.4vw, 32px);
+  font-weight: 500;
+  font-style: italic;
+  color: var(--dorado);
+}
+
+.oferta__bajada {
+  font-size: 15px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .75);
+  margin: 0;
+}
+
+.oferta__valores {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  background: rgba(255, 255, 255, .12);
+  border: 1px solid rgba(255, 255, 255, .12);
+}
+
+.oferta__valor {
+  background: var(--negro-800);
+  padding: 18px 16px;
+  display: grid;
+  align-content: start;
+  gap: 3px;
+}
+
+.oferta__nombre {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--blanco);
+}
+
+.oferta__detalle {
+  font-size: 13px;
+  color: rgba(255, 255, 255, .6);
+  margin: 0;
+}
+
+.oferta__total {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--dorado);
+  font-variant-numeric: tabular-nums;
+  margin: 6px 0 0;
+}
+
+.oferta__pie {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.oferta__nota {
+  margin: 0;
+  font-size: 14px;
+  color: rgba(255, 255, 255, .65);
+}
+
+/* botón de WhatsApp, verde propio de la marca */
+.boton--whatsapp {
+  background: #25d366;
+  border-color: #25d366;
+  color: #0b3d20;
+  font-weight: 600;
+}
+.boton--whatsapp:hover,
+.boton--whatsapp:focus-visible {
+  background: transparent;
+  color: #25d366;
+  border-color: #25d366;
+}
+
 /* --- las tres tarjetas --- */
 
 .tarjetas {
@@ -1023,6 +1135,165 @@ h1, h2, h3, h4, h5, h6 {
   font-variant-numeric: tabular-nums;
 }
 
+/* --- galería --- */
+
+.galeria {
+  margin-top: 56px;
+  padding-top: 40px;
+  border-top: 1px solid #e0e2e5;
+}
+
+.galeria__titulo {
+  font-size: clamp(21px, 2.6vw, 26px);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.galeria__bajada {
+  color: var(--gris);
+  font-size: 15px;
+  margin: 0 0 24px;
+}
+
+.galeria__rejilla {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.galeria__rejilla a {
+  display: block;
+  overflow: hidden;
+  background: var(--gris-suave);
+}
+
+.galeria__rejilla img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  transition: transform .4s, opacity .3s;
+}
+
+.galeria__rejilla a:hover img,
+.galeria__rejilla a:focus-visible img {
+  transform: scale(1.04);
+  opacity: .92;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .galeria__rejilla a:hover img,
+  .galeria__rejilla a:focus-visible img { transform: none; }
+}
+
+/* --- visor de fotos --- */
+
+/* Usa el elemento <dialog> del navegador: el fondo oscuro, la tecla Escape y
+   el foco atrapado vienen de fábrica. Sin JavaScript la miniatura sigue siendo
+   un enlace normal a la foto, así que la galería no depende del visor. */
+.visor {
+  width: auto;
+  max-width: none;
+  max-height: none;
+  margin: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--blanco);
+  overflow: visible;
+}
+
+.visor::backdrop {
+  background: rgba(12, 12, 12, .88);
+}
+
+.visor__marco {
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+}
+
+.visor__foto {
+  display: block;
+  max-width: min(92vw, 900px);
+  max-height: 78vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, .55);
+}
+
+.visor__pie {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, .8);
+  max-width: min(92vw, 900px);
+}
+
+.visor__texto {
+  flex: 1;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.visor__contador {
+  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  font-variant-numeric: tabular-nums;
+  color: var(--dorado);
+  white-space: nowrap;
+}
+
+/* botones: cerrar, anterior y siguiente */
+.visor__boton {
+  position: fixed;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  background: rgba(255, 255, 255, .1);
+  border: 1px solid rgba(255, 255, 255, .25);
+  border-radius: 50%;
+  color: var(--blanco);
+  cursor: pointer;
+  padding: 0;
+  transition: background .25s, border-color .25s;
+}
+.visor__boton:hover,
+.visor__boton:focus-visible {
+  background: var(--terracota);
+  border-color: var(--terracota);
+}
+.visor__boton svg { width: 18px; height: 18px; fill: currentColor; }
+
+.visor__cerrar { top: 20px; right: 20px; }
+.visor__antes  { top: 50%; left: 20px;  transform: translateY(-50%); }
+.visor__luego  { top: 50%; right: 20px; transform: translateY(-50%); }
+
+/* entrada suave, igual que un modal */
+.visor[open] { animation: visor-entra .22s ease-out; }
+@keyframes visor-entra {
+  from { opacity: 0; transform: scale(.97); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .visor[open] { animation: none; }
+}
+
+/* mientras el visor está abierto, la página de atrás no se desplaza */
+html.visor-abierto { overflow: hidden; }
+
+@media (max-width: 860px) {
+  .visor__foto { max-height: 66vh; }
+  .visor__boton { width: 40px; height: 40px; }
+  .visor__cerrar { top: 12px; right: 12px; }
+  .visor__antes  { left: 8px; }
+  .visor__luego  { right: 8px; }
+}
+
 /* ==========================================================================
    IMPERDIBLES
    ========================================================================== */
@@ -1373,6 +1644,9 @@ h1, h2, h3, h4, h5, h6 {
   .proposito { grid-template-columns: 1fr; gap: 28px; margin-top: 40px; }
   .ofrece ul { grid-template-columns: 1fr 1fr; }
   .testimonios__lista { grid-template-columns: 1fr; }
+  .galeria__rejilla { grid-template-columns: repeat(2, 1fr); }
+  .oferta { padding: 26px 22px; }
+  .oferta__valores { grid-template-columns: 1fr 1fr; }
   .lugares { grid-template-columns: 1fr; gap: 20px; }
   .contacto { grid-template-columns: 1fr; gap: 32px; }
 
@@ -1407,6 +1681,8 @@ h1, h2, h3, h4, h5, h6 {
   .extra__figura { min-height: 180px; }
 
   .ofrece ul { grid-template-columns: 1fr; }
+  .oferta__valores { grid-template-columns: 1fr; }
+  .oferta__pie .boton { width: 100%; justify-content: center; }
   .dato { grid-template-columns: 1fr; gap: 10px; }
   .escribenos { padding: 26px 22px; }
 }

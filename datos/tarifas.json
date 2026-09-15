@@ -1,40 +1,102 @@
 {
   "_leeme": "Este archivo manda sobre los precios del sitio. Editar aquí, no en index.html. Los mismos valores están escritos en el HTML como respaldo para cuando la página se abre sin servidor: después de editar, correr verificar-datos.py para confirmar que ambos coinciden.",
-
   "temporada": "Verano: enero – febrero 2026",
   "procedencia": "Tomado de la portada de www.licahue.cl el 15 de septiembre de 2026, que es el dato más reciente que sobrevive en línea. Sin confirmar con el hotel.",
-
   "moneda": "CLP",
   "simbolo": "$",
   "nota": "Valores en pesos chilenos (CLP) por noche. <strong>IVA incluido.</strong>",
-  "meses": ["Enero", "Febrero"],
-
+  "oferta": {
+    "_leeme": "Para bajar la oferta del sitio, cambiar activa a false. No hay que borrar nada.",
+    "activa": true,
+    "etiqueta": "Oferta",
+    "titulo": "Fiestas Patrias",
+    "bajada": "3 noches, 4 días",
+    "valores": [
+      {
+        "nombre": "Habitación matrimonial",
+        "detalle": "2 personas, con desayuno",
+        "total": 147000
+      },
+      {
+        "nombre": "Departamento familiar",
+        "detalle": "4 personas, con desayuno",
+        "total": 195000
+      },
+      {
+        "nombre": "Cabaña",
+        "detalle": "2 a 3 personas",
+        "total": 165000
+      },
+      {
+        "nombre": "Cabaña",
+        "detalle": "4 a 5 personas",
+        "total": 195000
+      }
+    ],
+    "nota": "Valor total por las 3 noches, no por noche.",
+    "reservas": "Reservas solo por WhatsApp",
+    "whatsapp": "56997797188",
+    "_procedencia": "Datos entregados por el hotel el 15 de septiembre de 2026. Los cuatro valores equivalen exactamente a la tarifa por noche de enero multiplicada por 3."
+  },
+  "meses": [
+    "Enero",
+    "Febrero"
+  ],
   "alojamientos": [
     {
       "id": "matrimonial",
       "encabezado": "Tipo",
       "filas": [
-        { "etiqueta": "2 personas", "precios": [49000, 54000] }
+        {
+          "etiqueta": "2 personas",
+          "precios": [
+            49000,
+            54000
+          ]
+        }
       ]
     },
     {
       "id": "departamentos",
       "encabezado": "Ubicación",
       "filas": [
-        { "etiqueta": "Segundo piso", "precios": [65000, 69000] },
-        { "etiqueta": "Primer piso",  "precios": [60000, 65000] }
+        {
+          "etiqueta": "Segundo piso",
+          "precios": [
+            65000,
+            69000
+          ]
+        },
+        {
+          "etiqueta": "Primer piso",
+          "precios": [
+            60000,
+            65000
+          ]
+        }
       ]
     },
     {
       "id": "cabanas",
       "encabezado": "Capacidad",
       "filas": [
-        { "etiqueta": "4 a 5 personas", "precios": [65000, 69000] },
-        { "etiqueta": "2 a 3 personas", "precios": [55000, 59000] }
+        {
+          "etiqueta": "4 a 5 personas",
+          "precios": [
+            65000,
+            69000
+          ]
+        },
+        {
+          "etiqueta": "2 a 3 personas",
+          "precios": [
+            55000,
+            59000
+          ]
+        }
       ]
     }
   ],
-
   "extras": [
     {
       "id": "jacuzzi",
@@ -44,8 +106,14 @@
       "ancho": 1000,
       "alto": 671,
       "precios": [
-        { "valor": 30000, "detalle": "hasta 2 personas" },
-        { "valor": 40000, "detalle": "hasta 4 personas" }
+        {
+          "valor": 30000,
+          "detalle": "hasta 2 personas"
+        },
+        {
+          "valor": 40000,
+          "detalle": "hasta 4 personas"
+        }
       ],
       "nota": "Valores por cada 90 minutos."
     },
@@ -54,23 +122,49 @@
       "nombre": "Arriendo de kayak",
       "imagen": null,
       "precios": [
-        { "valor": 10000, "detalle": "por hora" }
+        {
+          "valor": 10000,
+          "detalle": "por hora"
+        }
       ],
       "nota": "Sin costo para quienes se alojan en las cabañas."
     }
   ],
-
   "condiciones": [
-    { "icono": "reloj",  "texto": "<strong>Check-in</strong> desde las 14:00 · <strong>Check-out</strong> hasta las 11:00" },
-    { "icono": "aviso",  "texto": "No se permiten fiestas." },
-    { "icono": "volver", "texto": "Para reembolso se necesitan <strong>5 días</strong> de anticipación." }
+    {
+      "icono": "reloj",
+      "texto": "<strong>Check-in</strong> desde las 14:00 · <strong>Check-out</strong> hasta las 11:00"
+    },
+    {
+      "icono": "aviso",
+      "texto": "No se permiten parlantes grandes."
+    },
+    {
+      "icono": "aviso",
+      "texto": "No recibimos motos de agua."
+    },
+    {
+      "icono": "volver",
+      "texto": "Para reembolso se necesitan <strong>5 días</strong> de anticipación, con justificación."
+    }
   ],
-
   "_historico_2024": {
-    "_nota": "Valores que traían las páginas individuales de cada alojamiento en la captura del 22 de febrero de 2024. Se conservan solo como referencia: NO se publican, porque contradicen las tarifas vigentes de más arriba. Sirven para que el hotel compare al confirmar.",
+    "_nota": "Precios que la tabla del plugin Hey Andes (wp_agency_experiences_data, campo ha_experience_price) sigue teniendo en el volcado del 15-sep-2026: son los mismos que mostraban las páginas de alojamiento en 2024, o sea que esa ficha nunca se actualizó. NO se publican: los vigentes son los de la tabla de más arriba, de la portada. Se conservan para que el hotel compare al confirmar. Las tres fichas están marcadas disabled=1 y los enlaces de reserva de hey-book.com dan 404: el motor de reservas ya no existe.",
     "matrimonial_desde": 49000,
     "departamentos_desde": 58000,
     "cabanas_desde": 68000,
-    "tinajas": { "2_personas_hora": 25000, "4_personas_hora": 35000, "_nota": "Servicio que figuraba en 2024 y ya no aparece en la portada vigente. Confirmar si sigue existiendo." }
+    "tinajas": {
+      "2_personas_hora": 25000,
+      "4_personas_hora": 35000,
+      "_nota": "Servicio que figuraba en 2024 y ya no aparece en la portada vigente. Confirmar si sigue existiendo."
+    }
+  },
+  "_procedencia_condiciones": "Reglas tomadas de wp_agency_experiences_data en el volcado del 15-sep-2026 (ha_experience_rules y ha_experience_rules_cancelation). «No se permiten fiestas», que figuraba en la captura de 2024, ya NO está en la base: se reemplazó por la de los parlantes. «No recibimos motos de agua» estaba solo en la ficha de cabañas. El texto original dice «5 de anticipación» sin unidad: «días» es una suposición, confirmar.",
+  "contacto": {
+    "telefono": "+56 9 9779 7188",
+    "telefono_enlace": "+56997797188",
+    "whatsapp": "56997797188",
+    "correo": "contacto@licahue.cl",
+    "instagram": "licahuehotel"
   }
 }

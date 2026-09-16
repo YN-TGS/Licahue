@@ -715,6 +715,8 @@
 
       <div class="contacto">
 
+      <div class="contacto__columna">
+
         <div class="datos">
 
           <div class="dato">
@@ -775,26 +777,130 @@
 
         </div>
 
-        <div class="escribenos">
-          <h3 class="escribenos__titulo">Déjenos un mensaje</h3>
-          <p>
-            Cuéntenos las fechas, cuántas personas son y qué tipo de alojamiento busca. Le
-            respondemos con disponibilidad y valores.
-          </p>
-          <div class="escribenos__acciones">
-            <a class="boton boton--whatsapp" href="https://wa.me/56997797188?text=Hola%2C%20quiero%20consultar%20por%20disponibilidad" target="_blank" rel="noopener">
-              <svg class="icono" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 1.8a8.2 8.2 0 1 1-4.2 15.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8zm-3.1 4c-.2 0-.5 0-.7.4-.3.4-1 1-1 2.3s1 2.7 1.2 2.9c.1.2 2 3.1 4.9 4.2 2.4.9 2.9.8 3.4.7.5 0 1.6-.6 1.8-1.3.2-.6.2-1.2.2-1.3l-.6-.3-1.7-.8c-.2-.1-.4-.2-.6.1l-.8 1c-.2.2-.3.2-.5.1-.3-.1-1.2-.5-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.2 0-.4.1-.5l.4-.5.3-.5v-.5l-.8-1.9c-.2-.5-.4-.4-.6-.5h-.4z"/></svg>
-              <span>Escribir por WhatsApp</span>
-            </a>
-            <a class="boton boton--linea" href="mailto:contacto@licahue.cl?subject=Consulta%20de%20reserva%20-%20Hotel%20Licahue">
-              <svg class="icono" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M1 3h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm7 5.6L14.4 4.4H1.6L8 8.6zM1.4 5.6V11.6h13.2V5.6L8 10.1 1.4 5.6z"/></svg>
-              <span>Escribir por correo</span>
-            </a>
-            <a class="boton boton--linea" href="tel:+56997797188">
-              <svg class="icono" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3.7.9a1.3 1.3 0 0 0-1.8.2L1 2.3C.3 3.2.2 4.4.7 5.4c1.9 4 5.1 7.2 9.1 9.1 1 .5 2.2.4 3.1-.3l1.2-.9a1.3 1.3 0 0 0 .2-1.8l-1.7-2.2a1.3 1.3 0 0 0-1.6-.4l-1.6.8-3.6-3.6.8-1.6a1.3 1.3 0 0 0-.4-1.6L3.7.9z"/></svg>
-              <span>Llamar a recepción</span>
-            </a>
+        <div class="contacto__acciones">
+          <a class="boton boton--whatsapp" href="https://wa.me/56997797188?text=Hola%2C%20quiero%20consultar%20por%20disponibilidad" target="_blank" rel="noopener">
+            <svg class="icono" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 1.8a8.2 8.2 0 1 1-4.2 15.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8zm-3.1 4c-.2 0-.5 0-.7.4-.3.4-1 1-1 2.3s1 2.7 1.2 2.9c.1.2 2 3.1 4.9 4.2 2.4.9 2.9.8 3.4.7.5 0 1.6-.6 1.8-1.3.2-.6.2-1.2.2-1.3l-.6-.3-1.7-.8c-.2-.1-.4-.2-.6.1l-.8 1c-.2.2-.3.2-.5.1-.3-.1-1.2-.5-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.2 0-.4.1-.5l.4-.5.3-.5v-.5l-.8-1.9c-.2-.5-.4-.4-.6-.5h-.4z"/></svg>
+            <span>Escribir por WhatsApp</span>
+          </a>
+        </div>
+
+        <!-- El mapa cumple dos funciones: equilibra la columna con la del
+             formulario, y resuelve un problema real: el hotel está en el km 4 de
+             un camino rural, sin número de casa.
+
+             La URL sale del botón «Compartir -> Insertar un mapa» de Google Maps,
+             que es la forma oficial. NO armarla a mano con las coordenadas del
+             enlace de la dirección: ese @lat,lng es el centro del encuadre, no el
+             lugar, y el pin termina al otro lado del camino. Esta apunta al hotel
+             por su identificador de lugar, así que el marcador sale rotulado.
+
+             Dentro de esa cadena ilegible, !5e1 es la vista satelital (!5e0 sería
+             el mapa normal). Si se regenera la URL desde Google Maps, hay que
+             ponerla en satelital antes de copiarla. -->
+        <div class="contacto__mapa">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d646.9897868617762!2d-73.246876!3d-37.9803556!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x966a651c19e75e73%3A0xa0c69c1c75505261!2sHotel%20y%20Caba%C3%B1as%20Licahue!5e1!3m2!1ses!2scl!4v1789522120099!5m2!1ses!2scl"
+            width="600" height="300" loading="lazy" allowfullscreen
+            referrerpolicy="strict-origin-when-cross-origin"
+            title="Ubicación de Hotel y Cabañas Licahue en el mapa"></iframe>
+        </div>
+
+      </div>
+
+      <div class="escribenos" data-formulario="activo">
+        <h3 class="escribenos__titulo">Déjenos un mensaje</h3>
+        <p>
+        Cuéntenos las fechas y cuántas personas son, y le respondemos con disponibilidad y
+        valores. Los campos marcados con <span aria-hidden="true">*</span><span class="vo">asterisco</span>
+        son obligatorios.
+        </p>
+
+        <!-- ----------------------------------------------------------------
+             Formulario de solicitud de reserva
+
+             Interruptor: el atributo data-formulario del panel de arriba.
+               "activo"    -> el formulario se muestra (estado actual)
+               "pendiente" -> el formulario queda oculto
+
+             ACTIVADO el 15-09-2026. La cadena rara del action NO es un codigo
+             de relleno: es el "invisible email" que entrega FormSubmit al
+             confirmar la casilla, y apunta a contacto@licahue.cl. Esta puesta
+             a proposito para que la direccion del hotel no quede escrita en
+             el codigo de la pagina, donde la recogen los robots de spam.
+             No reemplazarla por el correo. El detalle esta en NOTAS.md.
+             ---------------------------------------------------------------- -->
+        <form class="formulario" action="https://formsubmit.co/e0aa6c1982ed115f954fa8fc5b76fe89" method="POST">
+
+          <!-- Ajustes de FormSubmit: asunto del correo, formato de tabla y
+               sin captcha. El campo _honey es una trampa para robots: esta
+               oculta, y si llega con algo escrito, FormSubmit descarta el
+               mensaje. -->
+          <input type="hidden" name="_subject" value="Solicitud de reserva - Sitio web Licahue">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="text" name="_honey" class="formulario__trampa" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div class="formulario__campo">
+            <label for="f-alojamiento">Alojamiento</label>
+            <select id="f-alojamiento" name="alojamiento">
+              <option value="Aun no lo decide">Aún no lo decido</option>
+              <option value="Habitacion matrimonial">Habitación matrimonial</option>
+              <option value="Departamento familiar">Departamento familiar</option>
+              <option value="Cabana">Cabaña</option>
+            </select>
           </div>
+
+          <div class="formulario__fila">
+            <div class="formulario__campo">
+              <label for="f-llegada">Llegada <span aria-hidden="true">*</span></label>
+              <input type="date" id="f-llegada" name="fecha_llegada" required>
+            </div>
+            <div class="formulario__campo">
+              <label for="f-salida">Salida <span aria-hidden="true">*</span></label>
+              <input type="date" id="f-salida" name="fecha_salida" required>
+            </div>
+          </div>
+
+          <div class="formulario__fila">
+            <div class="formulario__campo">
+              <label for="f-adultos">Adultos <span aria-hidden="true">*</span></label>
+              <input type="number" id="f-adultos" name="adultos" value="2" min="1" max="20" required>
+            </div>
+            <div class="formulario__campo">
+              <label for="f-ninos">Niños</label>
+              <input type="number" id="f-ninos" name="ninos" value="0" min="0" max="20">
+            </div>
+          </div>
+
+          <div class="formulario__campo">
+            <label for="f-nombre">Nombre <span aria-hidden="true">*</span></label>
+            <input type="text" id="f-nombre" name="nombre" autocomplete="name" placeholder="Nombre y apellido" required>
+          </div>
+
+          <div class="formulario__campo">
+            <label for="f-correo">Correo <span aria-hidden="true">*</span></label>
+            <input type="email" id="f-correo" name="email" autocomplete="email" placeholder="nombre@correo.cl" required>
+          </div>
+
+          <div class="formulario__campo">
+            <label for="f-telefono">Teléfono</label>
+            <input type="tel" id="f-telefono" name="telefono" autocomplete="tel" placeholder="+56 9 1234 5678">
+          </div>
+
+          <div class="formulario__campo">
+            <label for="f-mensaje">Mensaje</label>
+            <textarea id="f-mensaje" name="mensaje" rows="4" placeholder="Cuéntenos si necesita algo en especial."></textarea>
+          </div>
+
+          <button type="submit" class="boton formulario__enviar">
+            <svg class="icono" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M1 3h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm7 5.6L14.4 4.4H1.6L8 8.6zM1.4 5.6V11.6h13.2V5.6L8 10.1 1.4 5.6z"/></svg>
+            <span>Enviar solicitud</span>
+          </button>
+
+          <p class="formulario__estado" role="status" aria-live="polite" hidden></p>
+
+        </form>
+
         </div>
 
       </div>
@@ -924,6 +1030,7 @@
 </dialog>
 
 <script src="js/galeria.js"></script>
+<script src="js/formulario.js"></script>
 
 
 </body>

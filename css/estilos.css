@@ -1346,7 +1346,18 @@ html.visor-abierto { overflow: hidden; }
   grid-template-columns: 1fr 1fr;
   gap: 48px;
   margin-top: 36px;
-  align-items: start;
+  align-items: stretch;
+}
+
+/* Columna izquierda: los datos y, debajo, los botones de contacto directo.
+   Los botones viven acá y no en el panel del formulario para que las dos
+   columnas tengan un alto parecido; si no, la derecha queda el doble de larga. */
+.contacto__columna {
+  display: grid;
+  gap: 32px;
+  /* Las dos primeras filas ocupan lo suyo y el mapa se estira con lo que sobre,
+     para que esta columna termine a la misma altura que el formulario. */
+  grid-template-rows: auto auto 1fr;
 }
 
 .datos {
@@ -1426,9 +1437,123 @@ html.visor-abierto { overflow: hidden; }
   color: var(--gris);
 }
 
-.escribenos__acciones {
+.contacto__acciones {
   display: grid;
   gap: 12px;
+}
+
+.contacto__mapa {
+  border: 1px solid #e4e6e8;
+  line-height: 0;
+  height: 100%;
+}
+
+.contacto__mapa iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  border: 0;
+}
+
+/* --- formulario de solicitud de reserva --- */
+
+/* Interruptor: mientras el panel diga data-formulario="pendiente", el
+   formulario no se muestra. Se enciende cambiando esa palabra por "activo"
+   en index.html, una vez que la casilla este activada en FormSubmit. */
+[data-formulario="pendiente"] .formulario { display: none; }
+
+/* La trampa para robots: oculta a la vista y fuera del recorrido del teclado */
+.formulario__trampa {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.formulario__campo {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.formulario__fila {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.formulario label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gris);
+}
+
+.formulario input,
+.formulario select,
+.formulario textarea {
+  font-family: var(--fuente);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--tinta);
+  background: var(--blanco);
+  border: 1px solid #d8dade;
+  border-radius: 2px;
+  padding: 11px 13px;
+  width: 100%;
+  transition: border-color .3s;
+}
+
+.formulario textarea { resize: vertical; }
+
+.formulario input:hover,
+.formulario select:hover,
+.formulario textarea:hover { border-color: var(--gris-borde); }
+
+.formulario input:focus,
+.formulario select:focus,
+.formulario textarea:focus {
+  border-color: var(--dorado);
+  outline: none;
+}
+.formulario input:focus-visible,
+.formulario select:focus-visible,
+.formulario textarea:focus-visible {
+  outline: 2px solid var(--dorado);
+  outline-offset: 2px;
+}
+
+/* Solo marca en rojo despues de que el visitante intento enviar, no mientras
+   escribe: el atributo data-intentado lo pone js/formulario.js */
+.formulario[data-intentado] :invalid { border-color: #b4452c; }
+
+.formulario__enviar {
+  width: 100%;
+  justify-content: center;
+  margin-top: 6px;
+}
+
+.formulario__enviar[disabled] {
+  opacity: .6;
+  cursor: progress;
+}
+
+.formulario__estado {
+  margin: 16px 0 0;
+  padding: 12px 14px;
+  font-size: 14px;
+  line-height: 1.6;
+  border-left: 3px solid var(--dorado);
+  background: var(--gris-suave);
+  color: var(--tinta);
+}
+
+.formulario__estado--error {
+  border-left-color: #b4452c;
+  color: #8f3722;
 }
 
 /* ==========================================================================
@@ -1648,7 +1773,11 @@ html.visor-abierto { overflow: hidden; }
   .oferta { padding: 26px 22px; }
   .oferta__valores { grid-template-columns: 1fr 1fr; }
   .lugares { grid-template-columns: 1fr; gap: 20px; }
-  .contacto { grid-template-columns: 1fr; gap: 32px; }
+  /* Apilado ya no hay nada con que emparejarse: el mapa vuelve a alto fijo. */
+  .contacto { grid-template-columns: 1fr; gap: 32px; align-items: start; }
+  .contacto__columna { grid-template-rows: none; }
+  .contacto__mapa { height: auto; }
+  .contacto__mapa iframe { height: 300px; min-height: 0; }
 
   .pie-llamado__texto { font-size: 21px; }
   .pie-llamado__interior { padding-block: 28px; }
@@ -1685,4 +1814,6 @@ html.visor-abierto { overflow: hidden; }
   .oferta__pie .boton { width: 100%; justify-content: center; }
   .dato { grid-template-columns: 1fr; gap: 10px; }
   .escribenos { padding: 26px 22px; }
+  .contacto__mapa iframe { height: 240px; min-height: 0; }
+  .formulario__fila { grid-template-columns: 1fr; gap: 0; }
 }

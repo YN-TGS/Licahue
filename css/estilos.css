@@ -638,18 +638,50 @@ html.visor-abierto .wa-flotante { display: none; }
   margin: 6px 0 0;
 }
 
+/* Precio rebajado (17-11-2026, pedido de Ernesto: «el valor real y en rojo la oferta»).
+   El rojo va de FONDO con números blancos, no como letra roja sobre negro, que se
+   lee mal: blanco sobre #c62828 da 5,6:1 de contraste. El valor normal va tachado
+   en gris claro (7:1 sobre el negro del panel). */
+.oferta__normal {
+  margin: 8px 0 0;
+  font-size: 14px;
+  color: rgba(255, 255, 255, .72);
+}
+.oferta__normal s {
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration-thickness: 2px;
+  text-decoration-color: rgba(255, 255, 255, .85);
+}
+
+.oferta__total--rebaja {
+  margin-top: 6px;
+  padding: 4px 14px;
+  background: #c62828;
+  color: var(--blanco);
+  font-weight: 700;
+  border-radius: 3px;
+}
+
 .oferta__pie {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 16px 24px;
 }
 
+/* Condiciones de la oferta: recuadro con borde dorado y texto blanco, para que se lea */
 .oferta__nota {
+  flex: 1 1 360px;
   margin: 0;
-  font-size: 14px;
-  color: rgba(255, 255, 255, .65);
+  padding: 14px 18px;
+  background: rgba(226, 194, 117, .12);
+  border-left: 4px solid var(--dorado);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--blanco);
 }
 
 /* botón de WhatsApp, verde propio de la marca */
@@ -1544,12 +1576,8 @@ html.visor-abierto { overflow: hidden; }
   align-content: start;
 }
 
-/* El botón de WhatsApp de contacto, más grande que el resto: es la vía de reserva */
+/* La reserva por WhatsApp está en el cartel de arriba; aquí solo queda «Llamar» */
 .contacto__acciones .boton { justify-content: center; }
-.contacto__acciones .boton--whatsapp {
-  font-size: 17px;
-  padding-block: 20px;
-}
 
 .datos {
   display: grid;

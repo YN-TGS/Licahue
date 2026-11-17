@@ -13,7 +13,9 @@
         "activa": true,
         "hasta": "2026-12-31",
         "titulo": "Navidad y Año Nuevo en cabañas",
-        "bajada": "Fin de semana largo · tarifa única",
+        "bajada": "Fin de semana largo · 3 noches, 4 días · tarifa única",
+        "destacada": true,
+        "_destacada": "true = todos los precios en la etiqueta roja, aunque no tengan valor normal (pedido de Ernesto, 17-11-2026).",
         "valores": [
           {
             "nombre": "Navidad",
@@ -51,23 +53,26 @@
           {
             "nombre": "Cabaña",
             "detalle": "2 a 3 personas",
+            "normal": 455000,
             "total": 395000
           },
           {
             "nombre": "Cabaña",
             "detalle": "4 a 5 personas",
+            "normal": 525000,
             "total": 483000
           },
           {
             "nombre": "Cabaña",
             "detalle": "6 personas",
+            "normal": 580000,
             "total": 550000
           }
         ],
         "nota": "Para arriendos de enero y febrero concretados antes del 30 de diciembre. En febrero se mantienen los valores de enero.",
         "reservas": "Reservar por WhatsApp",
         "whatsapp": "56997797188",
-        "_procedencia": "Entregado por el hotel por WhatsApp el 16-11-2026. Confirmado el 16-11: febrero también exige 7 noches de sábado a sábado concretadas antes del 30-dic, con los mismos valores."
+        "_procedencia": "Entregado por el hotel por WhatsApp el 16-11-2026. Valores normales (campo «normal», se muestran tachados) pedidos por Ernesto el 17-11-2026. Confirmado el 16-11: febrero también exige 7 noches de sábado a sábado concretadas antes del 30-dic, con los mismos valores."
       }
     ]
   },

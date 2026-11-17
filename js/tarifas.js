@@ -43,7 +43,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    fetch(RUTA)
+    fetch(RUTA, { cache: 'no-cache' })
       .then(function (r) {
         if (!r.ok) throw new Error('respuesta ' + r.status);
         return r.json();
@@ -88,7 +88,9 @@
           return '<div class="oferta__valor">' +
                    '<span class="oferta__nombre">' + esc(v.nombre) + '</span>' +
                    '<p class="oferta__detalle">' + esc(v.detalle) + '</p>' +
-                   '<p class="oferta__total">' + esc(precio(v.total)) + '</p>' +
+                   (v.normal ? '<p class="oferta__normal">Valor normal <s>' + esc(precio(v.normal)) + '</s></p>' : '') +
+                   '<p class="oferta__total' + (v.normal || o.destacada ? ' oferta__total--rebaja' : '') + '">' +
+                     (v.normal ? '<span class="vo">Valor oferta: </span>' : '') + esc(precio(v.total)) + '</p>' +
                  '</div>';
         }).join('');
 

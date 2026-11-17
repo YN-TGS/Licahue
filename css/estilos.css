@@ -24,7 +24,7 @@
   --ancho-max:     1140px;
   --gutter:        20px;
   --alto-logo:     57px;
-  --alto-cabecera: 110px;   /* logo 57px + 26px de relleno arriba y abajo */
+  --alto-cabecera: 154px;   /* barra de WhatsApp 44px + logo 57px + 26px de relleno arriba y abajo */
 }
 
 /* --------------------------------------------------------------- base --- */
@@ -156,6 +156,92 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 50;
   background: var(--negro-800);
   color: var(--blanco);
+}
+
+/* --- barra de reservas por WhatsApp, arriba del encabezado --- */
+.barra-wa {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 6px var(--gutter);
+  background: #25d366;
+  color: #0b3d20;
+  font-size: 16px;
+  text-decoration: none;
+  transition: background .3s;
+}
+.barra-wa:hover,
+.barra-wa:focus-visible { background: #1fbd5a; }
+.barra-wa .icono { width: 20px; height: 20px; flex: none; }
+.barra-wa__texto strong { font-weight: 700; }
+.barra-wa__accion {
+  margin-left: 6px;
+  padding: 5px 12px;
+  background: #0b3d20;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+/* --- botón flotante de WhatsApp --- */
+.wa-flotante {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 60;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px 14px 16px;
+  background: #25d366;
+  color: #0b3d20;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: 999px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .28);
+  animation: wa-latido 2.4s ease-out 1.5s 3;
+}
+.wa-flotante .icono { width: 26px; height: 26px; flex: none; }
+.wa-flotante:hover,
+.wa-flotante:focus-visible { background: #1fbd5a; }
+html.visor-abierto .wa-flotante { display: none; }
+
+@keyframes wa-latido {
+  0%   { box-shadow: 0 6px 20px rgba(0, 0, 0, .28), 0 0 0 0 rgba(37, 211, 102, .6); }
+  70%  { box-shadow: 0 6px 20px rgba(0, 0, 0, .28), 0 0 0 18px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 6px 20px rgba(0, 0, 0, .28), 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* --- cartel de reservas al inicio de Contacto --- */
+.cartel-wa {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 18px 0 8px;
+  padding: 22px 26px;
+  background: #25d366;
+  color: #0b3d20;
+  text-decoration: none;
+  transition: background .3s;
+}
+.cartel-wa:hover,
+.cartel-wa:focus-visible { background: #1fbd5a; }
+.cartel-wa__icono .icono { width: 44px; height: 44px; display: block; }
+.cartel-wa__cuerpo { flex: 1; min-width: 0; }
+.cartel-wa__cuerpo strong { display: block; font-size: clamp(19px, 2.4vw, 24px); line-height: 1.25; }
+.cartel-wa__cuerpo span { display: block; margin-top: 4px; font-size: 15px; }
+.cartel-wa__accion {
+  padding: 12px 22px;
+  background: #0b3d20;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 2px;
+  white-space: nowrap;
 }
 
 .cabecera__interior {
@@ -365,12 +451,23 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Aviso bajo los botones: las reservas se cierran por WhatsApp (pedido del hotel, 17-11-2026) */
 .portada__aviso {
-  margin: 14px 0 0;
-  font-size: 15px;
-  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 18px 0 0;
+  padding: 10px 18px;
+  background: rgba(11, 61, 32, .82);
+  border: 1px solid #25d366;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 600;
   color: var(--blanco);
-  text-shadow: 0 1px 8px rgba(0, 0, 0, .6);
 }
+.portada__aviso .icono { width: 20px; height: 20px; color: #25d366; flex: none; }
+
+.boton--grande { font-size: 17px; padding: 18px 30px; }
+.boton--grande .icono { width: 20px; height: 20px; }
+.boton--ancho { width: 100%; justify-content: center; margin-bottom: 10px; }
 
 /* --- bloque «Conózcanos» --- */
 
@@ -1269,6 +1366,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .wa-flotante { animation: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
   .galeria__rejilla a:hover img,
   .galeria__rejilla a:focus-visible img { transform: none; }
 }
@@ -1874,6 +1975,17 @@ html.visor-abierto { overflow: hidden; }
 
 @media (max-width: 560px) {
   :root { --alto-logo: 44px; }
+
+  .barra-wa { font-size: 14px; gap: 8px; }
+  .barra-wa__extra { display: none; }
+  .barra-wa__texto { white-space: nowrap; }
+  .barra-wa__accion { font-size: 13px; padding: 5px 10px; }
+  .wa-flotante { right: 14px; bottom: 14px; padding: 14px; }
+  .wa-flotante__texto { display: none; }
+  .wa-flotante .icono { width: 30px; height: 30px; }
+  .cartel-wa { flex-wrap: wrap; gap: 14px; padding: 20px; }
+  .cartel-wa__accion { width: 100%; text-align: center; }
+  .portada__aviso { font-size: 15px; border-radius: 12px; text-align: left; }
 
   .marca {
     flex-direction: column;

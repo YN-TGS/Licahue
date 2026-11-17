@@ -105,7 +105,7 @@
     })['catch'](function (error) {
       if (window.console && console.warn) console.warn('FormSubmit:', error && error.message);
       mostrar('No pudimos enviar el mensaje. Escríbanos por WhatsApp al +56 9 9779 7188 ' +
-              'o a contacto@licahue.cl y lo vemos de inmediato.', true);
+              'y lo vemos de inmediato.', true);
       if (boton) boton.disabled = false;
     });
   });

@@ -1,15 +1,79 @@
 {
   "_leeme": "Este archivo manda sobre los precios del sitio. Editar aquí, no en index.html. Los mismos valores están escritos en el HTML como respaldo para cuando la página se abre sin servidor: después de editar, correr verificar-datos.py para confirmar que ambos coinciden.",
-  "temporada": "Verano: enero – febrero 2026",
-  "procedencia": "Tomado de la portada de www.licahue.cl el 15 de septiembre de 2026, que es el dato más reciente que sobrevive en línea. Sin confirmar con el hotel.",
+  "temporada": "Verano: enero – febrero 2027",
+  "procedencia": "Precios entregados por el hotel por WhatsApp el 16-11-2026 (temporada enero-febrero 2027). Departamentos sin cambios respecto de 2026.",
   "moneda": "CLP",
   "simbolo": "$",
   "nota": "Valores en pesos chilenos (CLP) por noche. <strong>IVA incluido.</strong>",
-  "oferta": {
-    "_leeme": "Para bajar la oferta del sitio, cambiar activa a false. No hay que borrar nada.",
-    "activa": true,
-    "etiqueta": "Oferta",
-    "titulo": "Fiestas Patrias",
+  "ofertas": {
+    "_leeme": "Lista de ofertas. Cada una se apaga con activa:false, o sola al pasar la fecha 'hasta' (inclusive, AAAA-MM-DD). Se muestran en este orden.",
+    "lista": [
+      {
+        "id": "fiestas",
+        "activa": true,
+        "hasta": "2026-12-31",
+        "titulo": "Navidad y Año Nuevo en cabañas",
+        "bajada": "Fin de semana largo · tarifa única",
+        "valores": [
+          {
+            "nombre": "Navidad",
+            "detalle": "Cabaña, 2 personas",
+            "total": 155000
+          },
+          {
+            "nombre": "Navidad",
+            "detalle": "Cabaña, 4 personas",
+            "total": 195000
+          },
+          {
+            "nombre": "Año Nuevo",
+            "detalle": "Cabaña, 2 personas",
+            "total": 180000
+          },
+          {
+            "nombre": "Año Nuevo",
+            "detalle": "Cabaña, 4 personas",
+            "total": 220000
+          }
+        ],
+        "nota": "Valor total por el fin de semana largo.",
+        "reservas": "Reservar por WhatsApp",
+        "whatsapp": "56997797188",
+        "_procedencia": "Entregado por el hotel por WhatsApp el 16-11-2026."
+      },
+      {
+        "id": "enero",
+        "activa": true,
+        "hasta": "2026-12-29",
+        "titulo": "Oferta enero: 7 noches en cabañas",
+        "bajada": "De sábado a sábado",
+        "valores": [
+          {
+            "nombre": "Cabaña",
+            "detalle": "2 a 3 personas",
+            "total": 395000
+          },
+          {
+            "nombre": "Cabaña",
+            "detalle": "4 a 5 personas",
+            "total": 483000
+          },
+          {
+            "nombre": "Cabaña",
+            "detalle": "6 personas",
+            "total": 550000
+          }
+        ],
+        "nota": "Para arriendos de enero y febrero concretados antes del 30 de diciembre. En febrero se mantienen los valores de enero.",
+        "reservas": "Reservar por WhatsApp",
+        "whatsapp": "56997797188",
+        "_procedencia": "Entregado por el hotel por WhatsApp el 16-11-2026. Confirmado el 16-11: febrero también exige 7 noches de sábado a sábado concretadas antes del 30-dic, con los mismos valores."
+      }
+    ]
+  },
+  "_oferta_fiestas_patrias_2026": {
+    "_leeme": "Oferta anterior, reemplazada el 16-11-2026. Se conserva como referencia.",
+    "titulo": "Oferta Fiestas Patrias 2026",
     "bajada": "3 noches, 4 días",
     "valores": [
       {
@@ -33,10 +97,7 @@
         "total": 195000
       }
     ],
-    "nota": "Valor total por las 3 noches, no por noche.",
-    "reservas": "Reservas solo por WhatsApp",
-    "whatsapp": "56997797188",
-    "_procedencia": "Datos entregados por el hotel el 15 de septiembre de 2026. Los cuatro valores equivalen exactamente a la tarifa por noche de enero multiplicada por 3."
+    "nota": "¡¡Las 3 noches por estos increíbles precios!!"
   },
   "meses": [
     "Enero",
@@ -50,8 +111,8 @@
         {
           "etiqueta": "2 personas",
           "precios": [
-            49000,
-            54000
+            52000,
+            56000
           ]
         }
       ]
@@ -81,17 +142,24 @@
       "encabezado": "Capacidad",
       "filas": [
         {
+          "etiqueta": "6 personas",
+          "precios": [
+            83000,
+            85000
+          ]
+        },
+        {
           "etiqueta": "4 a 5 personas",
           "precios": [
-            65000,
-            69000
+            75000,
+            79500
           ]
         },
         {
           "etiqueta": "2 a 3 personas",
           "precios": [
-            55000,
-            59000
+            65000,
+            68000
           ]
         }
       ]
@@ -102,9 +170,9 @@
       "id": "jacuzzi",
       "nombre": "Jacuzzi",
       "imagen": "img/jacuzzi.jpg",
-      "alt": "Jacuzzi de madera con ventanales hacia el bosque y el lago",
-      "ancho": 1000,
-      "alto": 671,
+      "alt": "Jacuzzi de agua burbujeante empotrado en una terraza de madera, con grandes ventanales hacia la vegetación",
+      "ancho": 1024,
+      "alto": 572,
       "precios": [
         {
           "valor": 30000,
@@ -120,14 +188,16 @@
     {
       "id": "kayak",
       "nombre": "Arriendo de kayak",
-      "imagen": null,
+      "imagen": "img/tarifa-kayak.jpg",
       "precios": [
         {
           "valor": 10000,
           "detalle": "por hora"
         }
       ],
-      "nota": "Sin costo para quienes se alojan en las cabañas."
+      "alt": "Dos personas con chaleco salvavidas remando en un kayak doble amarillo por el lago, con la vegetación de la orilla al fondo",
+      "ancho": 1232,
+      "alto": 848
     }
   ],
   "condiciones": [
@@ -166,5 +236,25 @@
     "whatsapp": "56997797188",
     "correo": "contacto@licahue.cl",
     "instagram": "licahuehotel"
+  },
+  "_temporada_leeme": "Ya NO se muestra en el sitio: desde el 16-09-2026 el encabezado de tarifas muestra el campo \"nota\". Se conserva por si vuelve a hacer falta.",
+  "_precios_2026": {
+    "_leeme": "Temporada enero-febrero 2026, reemplazada el 16-11-2026. [enero, febrero]",
+    "matrimonial": {
+      "2 personas": [
+        49000,
+        54000
+      ]
+    },
+    "cabanas": {
+      "4 a 5 personas": [
+        65000,
+        69000
+      ],
+      "2 a 3 personas": [
+        55000,
+        59000
+      ]
+    }
   }
 }

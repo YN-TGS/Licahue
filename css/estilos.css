@@ -268,6 +268,13 @@ h1, h2, h3, h4, h5, h6 {
   padding-block: 80px;
 }
 
+/* Lo mismo para los destinos que no son secciones: la galería y cada
+   alojamiento, a los que apuntan el menú y los botones «+ Detalles». */
+.galeria,
+.alojamiento {
+  scroll-margin-top: var(--alto-cabecera);
+}
+
 .seccion:nth-of-type(even) { background: var(--gris-suave); }
 
 .seccion__titulo {
@@ -303,7 +310,7 @@ h1, h2, h3, h4, h5, h6 {
   max-height: 760px;
   padding-block: 90px;
   background-color: var(--negro-800);
-  background-image: url("../img/portada-azaleas.jpg");
+  background-image: url("../img/galeria/casona-de-noche.jpg");
   background-size: cover;
   background-position: center 60%;
   text-align: center;
@@ -354,6 +361,15 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   gap: 14px;
   margin-top: 12px;
+}
+
+/* Aviso bajo los botones: las reservas se cierran por WhatsApp (pedido del hotel, 17-11-2026) */
+.portada__aviso {
+  margin: 14px 0 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--blanco);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, .6);
 }
 
 /* --- bloque «Conózcanos» --- */
@@ -431,25 +447,30 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
 }
 
-/* --- oferta destacada --- */
+/* --- ofertas destacadas (una o varias, apiladas) --- */
+
+.ofertas {
+  display: grid;
+  gap: 28px;
+  margin-bottom: 44px;
+}
+
+.ofertas[hidden] { display: none; }
 
 .oferta {
   background: var(--negro-800);
   color: var(--blanco);
   border-top: 3px solid var(--dorado);
   padding: 34px 32px;
-  margin-bottom: 44px;
   display: grid;
   gap: 24px;
 }
 
-.oferta[hidden] { display: none; }
-
 .oferta__cabecera {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 8px 16px;
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 6px;
 }
 
 .oferta__etiqueta {
@@ -473,15 +494,18 @@ h1, h2, h3, h4, h5, h6 {
 
 .oferta__bajada {
   font-size: 15px;
+  font-weight: 700;
   letter-spacing: .1em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, .75);
+  color: var(--blanco);
   margin: 0;
 }
 
+/* Una columna por valor, sean 3 o 4: cada oferta trae su propia cantidad. */
 .oferta__valores {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
   gap: 2px;
   background: rgba(255, 255, 255, .12);
   border: 1px solid rgba(255, 255, 255, .12);
@@ -492,6 +516,8 @@ h1, h2, h3, h4, h5, h6 {
   padding: 18px 16px;
   display: grid;
   align-content: start;
+  justify-items: center;
+  text-align: center;
   gap: 3px;
 }
 
@@ -543,6 +569,39 @@ h1, h2, h3, h4, h5, h6 {
   border-color: #25d366;
 }
 
+/* --- franja «Reservas por WhatsApp», sobre las ofertas --- */
+
+.reserva-wa {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 28px;
+  margin: 0 0 32px;
+  padding: 22px 26px;
+  background: #e9f9ef;
+  border: 1px solid #b8ebc9;
+  border-left: 5px solid #25d366;
+}
+
+.reserva-wa__texto { margin: 0; flex: 1 1 320px; }
+.reserva-wa__texto strong { display: block; font-size: 18px; color: #0b3d20; }
+.reserva-wa__texto span { display: block; margin-top: 4px; font-size: 15px; color: var(--tinta); }
+.reserva-wa__texto a { color: var(--tinta); font-weight: 600; white-space: nowrap; }
+
+/* botón secundario de llamada, en el bloque de contacto */
+.boton--llamar {
+  background: transparent;
+  color: var(--tinta);
+  border-color: var(--gris-borde);
+}
+.boton--llamar:hover,
+.boton--llamar:focus-visible {
+  background: transparent;
+  color: var(--terracota);
+  border-color: var(--terracota);
+}
+
 /* --- las tres tarjetas --- */
 
 .tarjetas {
@@ -561,10 +620,22 @@ h1, h2, h3, h4, h5, h6 {
   padding: 32px 28px;
 }
 
+/* La foto sale a los bordes de la tarjeta, salteando el relleno lateral */
+.tarjeta__figura {
+  margin: -32px -28px 22px;
+}
+
+.tarjeta__figura img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
 .tarjeta__nombre {
   font-size: 21px;
   font-weight: 600;
   margin-bottom: 4px;
+  text-align: center;
 }
 
 .tarjeta__capacidad {
@@ -573,6 +644,7 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
   color: var(--terracota);
   margin: 0 0 18px;
+  text-align: center;
 }
 
 .tarjeta__texto {
@@ -616,7 +688,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .precios caption {
   caption-side: top;
-  text-align: left;
+  text-align: center;
   font-size: 12px;
   font-weight: 500;
   letter-spacing: .12em;
@@ -641,6 +713,8 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--gris);
 }
 
+/* Desde el 16-11-2026 vuelven las dos columnas (enero y febrero): la etiqueta
+   a la izquierda y los precios a la derecha, alineados por cifra. */
 .precios th:first-child,
 .precios td:first-child {
   text-align: left;
@@ -1164,6 +1238,17 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0;
 }
 
+.galeria__instagram {
+  margin: 24px 0 0;
+  text-align: center;
+  font-size: 16px;
+  color: var(--tinta);
+}
+.galeria__instagram a {
+  color: var(--terracota);
+  font-weight: 600;
+}
+
 .galeria__rejilla a {
   display: block;
   overflow: hidden;
@@ -1350,14 +1435,19 @@ html.visor-abierto { overflow: hidden; }
 }
 
 /* Columna izquierda: los datos y, debajo, los botones de contacto directo.
-   Los botones viven acá y no en el panel del formulario para que las dos
-   columnas tengan un alto parecido; si no, la derecha queda el doble de larga. */
+   A la derecha va el mapa, que se estira al alto de esta columna. El panel del
+   formulario sigue en el HTML, pero con el atributo hidden (17-11-2026). */
 .contacto__columna {
   display: grid;
   gap: 32px;
-  /* Las dos primeras filas ocupan lo suyo y el mapa se estira con lo que sobre,
-     para que esta columna termine a la misma altura que el formulario. */
-  grid-template-rows: auto auto 1fr;
+  align-content: start;
+}
+
+/* El botón de WhatsApp de contacto, más grande que el resto: es la vía de reserva */
+.contacto__acciones .boton { justify-content: center; }
+.contacto__acciones .boton--whatsapp {
+  font-size: 17px;
+  padding-block: 20px;
 }
 
 .datos {
@@ -1771,11 +1861,10 @@ html.visor-abierto { overflow: hidden; }
   .testimonios__lista { grid-template-columns: 1fr; }
   .galeria__rejilla { grid-template-columns: repeat(2, 1fr); }
   .oferta { padding: 26px 22px; }
-  .oferta__valores { grid-template-columns: 1fr 1fr; }
+  .oferta__valores { grid-auto-flow: row; grid-template-columns: 1fr 1fr; }
   .lugares { grid-template-columns: 1fr; gap: 20px; }
   /* Apilado ya no hay nada con que emparejarse: el mapa vuelve a alto fijo. */
   .contacto { grid-template-columns: 1fr; gap: 32px; align-items: start; }
-  .contacto__columna { grid-template-rows: none; }
   .contacto__mapa { height: auto; }
   .contacto__mapa iframe { height: 300px; min-height: 0; }
 
@@ -1810,7 +1899,7 @@ html.visor-abierto { overflow: hidden; }
   .extra__figura { min-height: 180px; }
 
   .ofrece ul { grid-template-columns: 1fr; }
-  .oferta__valores { grid-template-columns: 1fr; }
+  .oferta__valores { grid-auto-flow: row; grid-template-columns: 1fr; }
   .oferta__pie .boton { width: 100%; justify-content: center; }
   .dato { grid-template-columns: 1fr; gap: 10px; }
   .escribenos { padding: 26px 22px; }

@@ -63,21 +63,27 @@
     };
 
     // ---- encabezado de la sección -----------------------------------------
+    // Desde el 16-09-2026 esta línea muestra la nota de moneda, no la temporada:
+    // el hotel pidió no repetirla dos veces. Va con innerHTML porque el texto
+    // del JSON trae un <strong>.
     var periodo = document.getElementById('tarifas-periodo');
-    if (periodo && datos.temporada) periodo.textContent = datos.temporada;
+    if (periodo && datos.nota) periodo.innerHTML = datos.nota;
 
-    var nota = document.getElementById('tarifas-nota');
-    if (nota && datos.nota) nota.innerHTML = datos.nota;
+    // ---- ofertas destacadas ----------------------------------------------
+    // Desde el 16-11-2026 son una lista. Cada una se baja con activa:false o
+    // sola al pasar su fecha "hasta" (inclusive, hora local del visitante).
+    var ofertas = document.getElementById('ofertas');
+    if (ofertas && datos.ofertas) {
+      var hoy = new Date();
+      hoy = hoy.getFullYear() + '-' + ('0' + (hoy.getMonth() + 1)).slice(-2) + '-' +
+            ('0' + hoy.getDate()).slice(-2);
 
-    // ---- oferta destacada -------------------------------------------------
-    var oferta = document.getElementById('oferta');
-    if (oferta) {
-      var o = datos.oferta;
-      if (!o || !o.activa) {
-        // Basta con poner activa:false en el JSON para bajarla del sitio.
-        oferta.hidden = true;
-      } else {
-        oferta.hidden = false;
+      var vigentes = (datos.ofertas.lista || []).filter(function (o) {
+        return o.activa && (!o.hasta || hoy <= o.hasta);
+      });
+
+      ofertas.hidden = vigentes.length === 0;
+      ofertas.innerHTML = vigentes.map(function (o) {
         var valores = (o.valores || []).map(function (v) {
           return '<div class="oferta__valor">' +
                    '<span class="oferta__nombre">' + esc(v.nombre) + '</span>' +
@@ -87,12 +93,11 @@
         }).join('');
 
         var wa = 'https://wa.me/' + esc(o.whatsapp || '') +
-                 '?text=' + encodeURIComponent('Hola, quiero reservar la oferta de ' + (o.titulo || ''));
+                 '?text=' + encodeURIComponent('Hola, quiero reservar: ' + (o.titulo || ''));
 
-        oferta.innerHTML =
+        return '<aside class="oferta" id="oferta-' + esc(o.id) + '" aria-labelledby="t-oferta-' + esc(o.id) + '">' +
           '<div class="oferta__cabecera">' +
-            '<span class="oferta__etiqueta">' + esc(o.etiqueta || 'Oferta') + '</span>' +
-            '<span class="oferta__titulo" id="t-oferta">' + esc(o.titulo) + '</span>' +
+            '<span class="oferta__titulo" id="t-oferta-' + esc(o.id) + '">' + esc(o.titulo) + '</span>' +
             '<p class="oferta__bajada">' + esc(o.bajada) + '</p>' +
           '</div>' +
           '<div class="oferta__valores">' + valores + '</div>' +
@@ -102,8 +107,9 @@
               icono(ICONOS.whatsapp) +
               '<span>' + esc(o.reservas || 'Reservar por WhatsApp') + '</span>' +
             '</a>' +
-          '</div>';
-      }
+          '</div>' +
+        '</aside>';
+      }).join('');
     }
 
     // ---- tabla de precios de cada alojamiento -----------------------------
@@ -128,18 +134,6 @@
         '</span></th>' + encabezados + '</tr></thead>' +
         '<tbody>' + filas + '</tbody>';
 
-      // «Desde $X por noche» en la sección de alojamientos.
-      // Se calcula del mismo dato, así no puede quedar desfasado.
-      var destino = document.querySelector('[data-desde="' + a.id + '"]');
-      if (destino) {
-        var todos = (a.filas || []).reduce(function (acc, f) {
-          return acc.concat(f.precios || []);
-        }, []);
-        if (todos.length) {
-          destino.innerHTML = 'Desde <strong>' + esc(precio(Math.min.apply(null, todos))) +
-                              '</strong> por noche';
-        }
-      }
     });
 
     // ---- servicios adicionales -------------------------------------------

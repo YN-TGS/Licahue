@@ -61,6 +61,7 @@
         <li><a class="menu__enlace" href="#tarifas">Tarifas</a></li>
         <li><a class="menu__enlace" href="#habitaciones">Habitaciones</a></li>
         <li><a class="menu__enlace" href="#nosotros">Nosotros</a></li>
+        <li><a class="menu__enlace" href="#imagenes">Imágenes</a></li>
         <li><a class="menu__enlace" href="#imperdibles">Imperdibles</a></li>
         <li><a class="menu__enlace" href="#contacto">Contacto</a></li>
       </ul>
@@ -78,7 +79,7 @@
 
     <div class="portada__imagen">
       <div class="contenedor portada__texto">
-        <span class="portada__saludo">Bienvenidos</span>
+        <span class="portada__saludo">Hospédate con nosotros y maravíllate</span>
         <h1 class="portada__titulo" id="t-inicio">Hotel y Cabañas Licahue</h1>
         <p class="portada__lugar">Lago Lanalhue &middot; Chile</p>
         <div class="portada__acciones">
@@ -86,18 +87,23 @@
             <svg class="icono" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
               <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 5 5 5-5 5v-3H7v-4h6V7z"/>
             </svg>
-            <span>Ver tarifas</span>
+            <span>Ver Tarifas y Ofertas</span>
           </a>
           <a class="boton boton--claro" href="#contacto">Contáctanos</a>
+          <a class="boton boton--whatsapp" href="https://wa.me/56997797188?text=Hola%2C%20quiero%20hacer%20una%20reserva" target="_blank" rel="noopener">
+            <svg class="icono" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 1.8a8.2 8.2 0 1 1-4.2 15.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8zm-3.1 4c-.2 0-.5 0-.7.4-.3.4-1 1-1 2.3s1 2.7 1.2 2.9c.1.2 2 3.1 4.9 4.2 2.4.9 2.9.8 3.4.7.5 0 1.6-.6 1.8-1.3.2-.6.2-1.2.2-1.3l-.6-.3-1.7-.8c-.2-.1-.4-.2-.6.1l-.8 1c-.2.2-.3.2-.5.1-.3-.1-1.2-.5-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.2 0-.4.1-.5l.4-.5.3-.5v-.5l-.8-1.9c-.2-.5-.4-.4-.6-.5h-.4z"/></svg>
+            <span>Reservar por WhatsApp</span>
+          </a>
         </div>
+        <p class="portada__aviso">Las reservas se hacen y se confirman por WhatsApp</p>
       </div>
     </div>
 
     <div class="contenedor conozcanos">
       <figure class="conozcanos__figura">
-        <img src="img/lago-lanalhue-atardecer.jpg" width="1200" height="786"
-             alt="Atardecer sobre el lago Lanalhue visto desde los cerros de Contulmo">
-        <figcaption>El lago Lanalhue al atardecer, desde Contulmo.</figcaption>
+        <img src="img/hotel-de-noche.jpg" width="960" height="640"
+             alt="La casona del hotel iluminada de noche, con luna llena y una araucaria al lado">
+        <figcaption>La casona del hotel en una noche de luna llena.</figcaption>
       </figure>
 
       <div class="conozcanos__cuerpo">
@@ -106,7 +112,7 @@
           Hotel familiar de 14 habitaciones y 6 cabañas, con una excelente vista al lago Lanalhue.
         </p>
         <p>
-          Ubicado en el Km 4 de la Ruta P60-R Contulmo a Cañete, en la comuna de Contulmo,
+          Ubicado en el Km 4 de la Ruta P60-R Contulmo a Cañete, comuna de Contulmo,
           Región del Biobío — Chile.
         </p>
         <p>
@@ -123,56 +129,98 @@
     <div class="contenedor">
 
       <div class="tarifas__encabezado">
-        <h2 class="seccion__titulo" id="t-tarifas">Habitaciones y tarifas</h2>
-        <span class="tarifas__periodo" id="tarifas-periodo">Verano: enero &ndash; febrero 2026</span>
-        <p class="tarifas__moneda" id="tarifas-nota">
-          Valores en pesos chilenos (CLP) por noche. <strong>IVA incluido.</strong>
-        </p>
+        <h2 class="seccion__titulo" id="t-tarifas">Tarifas Oficiales y Ofertas</h2>
+        <span class="tarifas__periodo" id="tarifas-periodo">Valores en pesos chilenos (CLP) por noche. <strong>IVA incluido.</strong></span>
       </div>
 
-      <!-- Oferta. Se enciende y se apaga desde datos/tarifas.json, campo oferta.activa -->
-      <aside class="oferta" id="oferta" aria-labelledby="t-oferta">
-        <div class="oferta__cabecera">
-          <span class="oferta__etiqueta">Oferta</span>
-          <span class="oferta__titulo" id="t-oferta">Fiestas Patrias</span>
-          <p class="oferta__bajada">3 noches, 4 días</p>
-        </div>
+      <div class="reserva-wa">
+        <p class="reserva-wa__texto">
+          <strong>Las reservas se hacen y se confirman por WhatsApp.</strong>
+          <span>Para cualquier consulta también puede llamarnos al <a href="tel:+56997797188">+56 9 9779 7188</a>.</span>
+        </p>
+        <a class="boton boton--whatsapp" href="https://wa.me/56997797188?text=Hola%2C%20quiero%20hacer%20una%20reserva" target="_blank" rel="noopener">
+          <svg class="icono" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 1.8a8.2 8.2 0 1 1-4.2 15.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8zm-3.1 4c-.2 0-.5 0-.7.4-.3.4-1 1-1 2.3s1 2.7 1.2 2.9c.1.2 2 3.1 4.9 4.2 2.4.9 2.9.8 3.4.7.5 0 1.6-.6 1.8-1.3.2-.6.2-1.2.2-1.3l-.6-.3-1.7-.8c-.2-.1-.4-.2-.6.1l-.8 1c-.2.2-.3.2-.5.1-.3-.1-1.2-.5-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.2 0-.4.1-.5l.4-.5.3-.5v-.5l-.8-1.9c-.2-.5-.4-.4-.6-.5h-.4z"/></svg>
+          <span>Reservar por WhatsApp</span>
+        </a>
+      </div>
 
-        <div class="oferta__valores">
-          <div class="oferta__valor">
-            <span class="oferta__nombre">Habitación matrimonial</span>
-            <p class="oferta__detalle">2 personas, con desayuno</p>
-            <p class="oferta__total">$147.000</p>
+      <!-- Ofertas. Se editan en datos/tarifas.json, campo ofertas.lista: cada una se
+           apaga con activa:false o sola al pasar su fecha "hasta". Este bloque es el
+           respaldo; lo reescribe verificar-datos.py --arreglar. -->
+      <div class="ofertas" id="ofertas">
+        <aside class="oferta" id="oferta-fiestas" aria-labelledby="t-oferta-fiestas">
+          <div class="oferta__cabecera">
+            <span class="oferta__titulo" id="t-oferta-fiestas">Navidad y Año Nuevo en cabañas</span>
+            <p class="oferta__bajada">Fin de semana largo · tarifa única</p>
           </div>
-          <div class="oferta__valor">
-            <span class="oferta__nombre">Departamento familiar</span>
-            <p class="oferta__detalle">4 personas, con desayuno</p>
-            <p class="oferta__total">$195.000</p>
+          <div class="oferta__valores">
+            <div class="oferta__valor">
+              <span class="oferta__nombre">Navidad</span>
+              <p class="oferta__detalle">Cabaña, 2 personas</p>
+              <p class="oferta__total">$155.000</p>
+            </div>
+            <div class="oferta__valor">
+              <span class="oferta__nombre">Navidad</span>
+              <p class="oferta__detalle">Cabaña, 4 personas</p>
+              <p class="oferta__total">$195.000</p>
+            </div>
+            <div class="oferta__valor">
+              <span class="oferta__nombre">Año Nuevo</span>
+              <p class="oferta__detalle">Cabaña, 2 personas</p>
+              <p class="oferta__total">$180.000</p>
+            </div>
+            <div class="oferta__valor">
+              <span class="oferta__nombre">Año Nuevo</span>
+              <p class="oferta__detalle">Cabaña, 4 personas</p>
+              <p class="oferta__total">$220.000</p>
+            </div>
           </div>
-          <div class="oferta__valor">
-            <span class="oferta__nombre">Cabaña</span>
-            <p class="oferta__detalle">2 a 3 personas</p>
-            <p class="oferta__total">$165.000</p>
+          <div class="oferta__pie">
+            <p class="oferta__nota">Valor total por el fin de semana largo.</p>
+            <a class="boton boton--whatsapp" href="https://wa.me/56997797188?text=Hola%2C%20quiero%20reservar%3A%20Navidad%20y%20A%C3%B1o%20Nuevo%20en%20caba%C3%B1as" target="_blank" rel="noopener">
+              <svg class="icono" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 1.8a8.2 8.2 0 1 1-4.2 15.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8zm-3.1 4c-.2 0-.5 0-.7.4-.3.4-1 1-1 2.3s1 2.7 1.2 2.9c.1.2 2 3.1 4.9 4.2 2.4.9 2.9.8 3.4.7.5 0 1.6-.6 1.8-1.3.2-.6.2-1.2.2-1.3l-.6-.3-1.7-.8c-.2-.1-.4-.2-.6.1l-.8 1c-.2.2-.3.2-.5.1-.3-.1-1.2-.5-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.2 0-.4.1-.5l.4-.5.3-.5v-.5l-.8-1.9c-.2-.5-.4-.4-.6-.5h-.4z"/></svg>
+              <span>Reservar por WhatsApp</span>
+            </a>
           </div>
-          <div class="oferta__valor">
-            <span class="oferta__nombre">Cabaña</span>
-            <p class="oferta__detalle">4 a 5 personas</p>
-            <p class="oferta__total">$195.000</p>
+        </aside>
+        <aside class="oferta" id="oferta-enero" aria-labelledby="t-oferta-enero">
+          <div class="oferta__cabecera">
+            <span class="oferta__titulo" id="t-oferta-enero">Oferta enero: 7 noches en cabañas</span>
+            <p class="oferta__bajada">De sábado a sábado</p>
           </div>
-        </div>
-
-        <div class="oferta__pie">
-          <p class="oferta__nota">Valor total por las 3 noches, no por noche.</p>
-          <a class="boton boton--whatsapp" href="https://wa.me/56997797188?text=Hola%2C%20quiero%20reservar%20la%20oferta%20de%20Fiestas%20Patrias" target="_blank" rel="noopener">
-            <svg class="icono" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 1.8a8.2 8.2 0 1 1-4.2 15.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8zm-3.1 4c-.2 0-.5 0-.7.4-.3.4-1 1-1 2.3s1 2.7 1.2 2.9c.1.2 2 3.1 4.9 4.2 2.4.9 2.9.8 3.4.7.5 0 1.6-.6 1.8-1.3.2-.6.2-1.2.2-1.3l-.6-.3-1.7-.8c-.2-.1-.4-.2-.6.1l-.8 1c-.2.2-.3.2-.5.1-.3-.1-1.2-.5-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.2 0-.4.1-.5l.4-.5.3-.5v-.5l-.8-1.9c-.2-.5-.4-.4-.6-.5h-.4z"/></svg>
-            <span>Reservar por WhatsApp</span>
-          </a>
-        </div>
-      </aside>
+          <div class="oferta__valores">
+            <div class="oferta__valor">
+              <span class="oferta__nombre">Cabaña</span>
+              <p class="oferta__detalle">2 a 3 personas</p>
+              <p class="oferta__total">$395.000</p>
+            </div>
+            <div class="oferta__valor">
+              <span class="oferta__nombre">Cabaña</span>
+              <p class="oferta__detalle">4 a 5 personas</p>
+              <p class="oferta__total">$483.000</p>
+            </div>
+            <div class="oferta__valor">
+              <span class="oferta__nombre">Cabaña</span>
+              <p class="oferta__detalle">6 personas</p>
+              <p class="oferta__total">$550.000</p>
+            </div>
+          </div>
+          <div class="oferta__pie">
+            <p class="oferta__nota">Para arriendos de enero y febrero concretados antes del 30 de diciembre. En febrero se mantienen los valores de enero.</p>
+            <a class="boton boton--whatsapp" href="https://wa.me/56997797188?text=Hola%2C%20quiero%20reservar%3A%20Oferta%20enero%3A%207%20noches%20en%20caba%C3%B1as" target="_blank" rel="noopener">
+              <svg class="icono" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 1.8a8.2 8.2 0 1 1-4.2 15.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8zm-3.1 4c-.2 0-.5 0-.7.4-.3.4-1 1-1 2.3s1 2.7 1.2 2.9c.1.2 2 3.1 4.9 4.2 2.4.9 2.9.8 3.4.7.5 0 1.6-.6 1.8-1.3.2-.6.2-1.2.2-1.3l-.6-.3-1.7-.8c-.2-.1-.4-.2-.6.1l-.8 1c-.2.2-.3.2-.5.1-.3-.1-1.2-.5-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.2 0-.4.1-.5l.4-.5.3-.5v-.5l-.8-1.9c-.2-.5-.4-.4-.6-.5h-.4z"/></svg>
+              <span>Reservar por WhatsApp</span>
+            </a>
+          </div>
+        </aside>
+      </div><!-- /ofertas -->
 
       <div class="tarjetas">
 
         <article class="tarjeta">
+          <figure class="tarjeta__figura">
+            <img src="img/tarifa-habitacion-matrimonial.jpeg" width="1024" height="705" loading="lazy" alt="Habitación matrimonial con cama de dos plazas y ventana al jardín">
+          </figure>
           <h3 class="tarjeta__nombre">Habitación matrimonial</h3>
           <p class="tarjeta__capacidad">Para 2 personas</p>
           <p class="tarjeta__texto">
@@ -201,14 +249,17 @@
                 <tr><th scope="col"><span class="vo">Tipo</span></th><th scope="col">Enero</th><th scope="col">Febrero</th></tr>
               </thead>
               <tbody>
-                <tr><th scope="row">2 personas</th><td>$49.000</td><td>$54.000</td></tr>
+                <tr><th scope="row">2 personas</th><td>$52.000</td><td>$56.000</td></tr>
               </tbody>
             </table>
-            <a class="boton boton--linea" href="#habitaciones">Ver detalles</a>
+            <a class="boton boton--linea" href="#aloj-matrimonial">+ Detalles</a>
           </div>
         </article>
 
         <article class="tarjeta">
+          <figure class="tarjeta__figura">
+            <img src="img/tarifa-departamento-familiar.jpeg" width="1024" height="705" loading="lazy" alt="Interior de un departamento familiar con sus camas y living">
+          </figure>
           <h3 class="tarjeta__nombre">Departamentos familiares</h3>
           <p class="tarjeta__capacidad">Para 4 personas</p>
           <p class="tarjeta__texto">
@@ -241,13 +292,16 @@
                 <tr><th scope="row">Primer piso</th><td>$60.000</td><td>$65.000</td></tr>
               </tbody>
             </table>
-            <a class="boton boton--linea" href="#habitaciones">Ver detalles</a>
+            <a class="boton boton--linea" href="#aloj-departamentos">+ Detalles</a>
           </div>
         </article>
 
         <article class="tarjeta">
+          <figure class="tarjeta__figura">
+            <img src="img/tarifa-cabana.jpeg" width="1024" height="685" loading="lazy" alt="Cabaña de madera del hotel entre los árboles">
+          </figure>
           <h3 class="tarjeta__nombre">Cabañas familiares</h3>
-          <p class="tarjeta__capacidad">Para 2 a 5 personas</p>
+          <p class="tarjeta__capacidad">Para 2 a 6 personas</p>
           <p class="tarjeta__texto">
             Completamente equipadas, rodeadas de vegetación nativa y con espectacular vista al
             lago Lanalhue.
@@ -255,7 +309,7 @@
           <ul class="tarjeta__incluye">
             <li>
               <svg class="icono" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M6.2 12.4 2 8.2l1.5-1.5 2.7 2.7 6.3-6.3L14 4.6z"/></svg>
-              <span>Leña, estufa y kayak sin costo</span>
+              <span>Leña y estufa sin costo</span>
             </li>
             <li>
               <svg class="icono" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M6.2 12.4 2 8.2l1.5-1.5 2.7 2.7 6.3-6.3L14 4.6z"/></svg>
@@ -274,11 +328,12 @@
                 <tr><th scope="col"><span class="vo">Capacidad</span></th><th scope="col">Enero</th><th scope="col">Febrero</th></tr>
               </thead>
               <tbody>
-                <tr><th scope="row">4 a 5 personas</th><td>$65.000</td><td>$69.000</td></tr>
-                <tr><th scope="row">2 a 3 personas</th><td>$55.000</td><td>$59.000</td></tr>
+                <tr><th scope="row">6 personas</th><td>$83.000</td><td>$85.000</td></tr>
+                <tr><th scope="row">4 a 5 personas</th><td>$75.000</td><td>$79.500</td></tr>
+                <tr><th scope="row">2 a 3 personas</th><td>$65.000</td><td>$68.000</td></tr>
               </tbody>
             </table>
-            <a class="boton boton--linea" href="#habitaciones">Ver detalles</a>
+            <a class="boton boton--linea" href="#aloj-cabanas">+ Detalles</a>
           </div>
         </article>
 
@@ -289,8 +344,8 @@
 
         <article class="extra">
           <figure class="extra__figura">
-            <img src="img/jacuzzi.jpg" width="1000" height="671" loading="lazy"
-                 alt="Jacuzzi de madera con ventanales hacia el bosque y el lago">
+            <img src="img/jacuzzi.jpg" width="1024" height="572" loading="lazy"
+                 alt="Jacuzzi de agua burbujeante empotrado en una terraza de madera, con grandes ventanales hacia la vegetación">
           </figure>
           <div class="extra__cuerpo">
             <h4 class="extra__nombre">Jacuzzi</h4>
@@ -300,11 +355,14 @@
           </div>
         </article>
 
-        <article class="extra extra--sin-foto">
+        <article class="extra">
+          <figure class="extra__figura">
+            <img src="img/tarifa-kayak.jpg" width="1232" height="848" loading="lazy"
+                 alt="Dos personas con chaleco salvavidas remando en un kayak doble amarillo por el lago, con la vegetación de la orilla al fondo">
+          </figure>
           <div class="extra__cuerpo">
             <h4 class="extra__nombre">Arriendo de kayak</h4>
             <p class="extra__precio"><strong>$10.000</strong> por hora</p>
-            <p class="extra__nota">Sin costo para quienes se alojan en las cabañas.</p>
           </div>
         </article>
 
@@ -324,7 +382,7 @@
 
       <div class="alojamientos">
 
-        <article class="alojamiento">
+        <article class="alojamiento" id="aloj-matrimonial">
           <figure class="alojamiento__figura">
             <img src="img/habitacion-matrimonial.jpg" width="900" height="675" loading="lazy"
                  alt="Habitación con cama matrimonial y cama individual, paredes y techo de madera, con ventanas al jardín">
@@ -338,7 +396,6 @@
               (1899), emplazada frente al lago Lanalhue. Espectacular vista desde los comedores,
               con muy buena gastronomía y atención. Uso de piscina sin costo, solo para huéspedes.
             </p>
-            <p class="alojamiento__desde" data-desde="matrimonial">Desde <strong>$49.000</strong> por noche</p>
 
             <div class="servicios">
               <div class="servicios--incluye">
@@ -361,7 +418,7 @@
           </div>
         </article>
 
-        <article class="alojamiento">
+        <article class="alojamiento" id="aloj-departamentos">
           <figure class="alojamiento__figura">
             <img src="img/departamento-familiar.jpg" width="900" height="600" loading="lazy"
                  alt="Dormitorio de madera con cama matrimonial y ventana con vista al lago Lanalhue">
@@ -378,7 +435,6 @@
               Lanalhue. Espectacular vista desde los comedores, con muy buena gastronomía y
               atención. Uso de piscina sin costo, solo para huéspedes.
             </p>
-            <p class="alojamiento__desde" data-desde="departamentos">Desde <strong>$60.000</strong> por noche</p>
 
             <div class="servicios">
               <div class="servicios--incluye">
@@ -401,22 +457,24 @@
           </div>
         </article>
 
-        <article class="alojamiento">
+        <article class="alojamiento" id="aloj-cabanas">
           <figure class="alojamiento__figura">
             <img src="img/cabana-familiar.jpg" width="900" height="600" loading="lazy"
                  alt="Cabaña de madera con terraza, rodeada de vegetación nativa y con el lago Lanalhue al fondo">
           </figure>
           <div class="alojamiento__cuerpo">
             <h3 class="alojamiento__nombre">Cabañas familiares</h3>
-            <p class="alojamiento__capacidad">Hasta 5 personas</p>
+            <p class="alojamiento__capacidad">Hasta 6 personas</p>
             <p class="alojamiento__composicion">
-              2 habitaciones (5 personas) &middot; 1 baño &middot; Completamente equipadas
+              Hasta 5 personas: 2 habitaciones &middot; 1 baño<br>
+              6 personas: 2 habitaciones amplias, una en cada piso y cada una con baño
+              privado &middot; medio baño adicional<br>
+              Todas completamente equipadas
             </p>
             <p class="alojamiento__texto">
-              Alojamiento en confortables cabañas para hasta 5 personas, rodeadas de vegetación
+              Alojamiento en confortables cabañas para hasta 6 personas, rodeadas de vegetación
               nativa y con espectacular vista al lago Lanalhue.
             </p>
-            <p class="alojamiento__desde" data-desde="cabanas">Desde <strong>$55.000</strong> por noche</p>
 
             <div class="servicios">
               <div class="servicios--incluye">
@@ -472,9 +530,9 @@
 
       <div class="acerca">
         <figure class="acerca__figura">
-          <img src="img/jardines-licahue.jpg" width="1000" height="750" loading="lazy"
-               alt="Jardines del hotel con quincho de madera y vista al lago Lanalhue entre los árboles">
-          <figcaption>Los jardines del hotel, con el lago al fondo.</figcaption>
+          <img src="img/hotel-piscina.jpg" width="1000" height="750" loading="lazy"
+               alt="Piscina del hotel rodeada de palmeras y jardín, con el lago Lanalhue al fondo">
+          <figcaption>La piscina y los jardines, con el lago al fondo.</figcaption>
         </figure>
 
         <div class="acerca__cuerpo">
@@ -534,15 +592,15 @@
       <h3 class="vo">El hotel en cifras</h3>
       <div class="cifras">
         <div class="cifra">
-          <p class="cifra__numero">30</p>
+          <p class="cifra__numero">30+</p>
           <p class="cifra__texto">Años funcionando como hotel</p>
         </div>
         <div class="cifra">
-          <p class="cifra__numero">3.000</p>
+          <p class="cifra__numero">3.000+</p>
           <p class="cifra__texto">Clientes satisfechos</p>
         </div>
         <div class="cifra">
-          <p class="cifra__numero">200</p>
+          <p class="cifra__numero">200+</p>
           <p class="cifra__texto">Congresos y seminarios realizados</p>
         </div>
       </div>
@@ -594,25 +652,42 @@
         </ul>
       </div>
 
-      <div class="galeria">
-        <h3 class="galeria__titulo">Nuestra galería</h3>
+      <div class="galeria" id="imagenes">
+        <h3 class="galeria__titulo">Imágenes</h3>
         <p class="galeria__bajada">Toque una fotografía para verla en grande. Puede recorrerlas con las flechas.</p>
         <ul class="galeria__rejilla">
-          <li><a href="img/galeria/casona-hotel.jpg" target="_blank" rel="noopener"><img src="img/galeria/casona-hotel.jpg" width="900" height="618" loading="lazy" alt="La casona de madera roja del hotel, con su jardín y escalera exterior"></a></li>
-          <li><a href="img/galeria/casona-de-noche.jpg" target="_blank" rel="noopener"><img src="img/galeria/casona-de-noche.jpg" width="900" height="600" loading="lazy" alt="La casona de noche bajo un cielo estrellado"></a></li>
+          <!-- 1.ª fila: el hotel -->
+          <li><a href="img/galeria/hotel-araucaria.jpg" target="_blank" rel="noopener"><img src="img/galeria/hotel-araucaria.jpg" width="1200" height="900" loading="lazy" alt="La casona del hotel junto a una araucaria, con el lago Lanalhue al fondo"></a></li>
+          <li><a href="img/galeria/hotel-de-noche-cielo.jpg" target="_blank" rel="noopener"><img src="img/galeria/hotel-de-noche-cielo.jpg" width="1200" height="900" loading="lazy" alt="El hotel iluminado de noche bajo la luna, con sus terrazas encendidas"></a></li>
           <li><a href="img/galeria/desayuno-vista-lago.jpg" target="_blank" rel="noopener"><img src="img/galeria/desayuno-vista-lago.jpg" width="900" height="551" loading="lazy" alt="Desayuno con kuchen y café en una mesa junto a la ventana, con el lago al fondo"></a></li>
           <li><a href="img/galeria/once-mesa-servida.jpg" target="_blank" rel="noopener"><img src="img/galeria/once-mesa-servida.jpg" width="900" height="535" loading="lazy" alt="Mesa de once servida con pan, kuchen, tetera y tazas, vista desde arriba"></a></li>
           <li><a href="img/galeria/comedor-atardecer.jpg" target="_blank" rel="noopener"><img src="img/galeria/comedor-atardecer.jpg" width="900" height="553" loading="lazy" alt="Mesa del comedor puesta con copas y platos, al atardecer frente al lago"></a></li>
           <li><a href="img/galeria/mate-frente-al-lago.jpg" target="_blank" rel="noopener"><img src="img/galeria/mate-frente-al-lago.jpg" width="900" height="600" loading="lazy" alt="Persona abrigada con una manta tomando algo caliente frente al lago Lanalhue"></a></li>
-          <li><a href="img/galeria/columpio-orilla.jpg" target="_blank" rel="noopener"><img src="img/galeria/columpio-orilla.jpg" width="900" height="600" loading="lazy" alt="Persona en un columpio colgado de un árbol, a la orilla del lago"></a></li>
+          <li><a href="img/galeria/playa-reposeras-muelle.jpg" target="_blank" rel="noopener"><img src="img/galeria/playa-reposeras-muelle.jpg" width="900" height="1200" loading="lazy" alt="Dos reposeras en la playa del hotel, junto al muelle y el lago en un día de sol"></a></li>
           <li><a href="img/galeria/banca-mirador.jpg" target="_blank" rel="noopener"><img src="img/galeria/banca-mirador.jpg" width="900" height="556" loading="lazy" alt="Persona sentada en una banca de madera mirando el lago entre la vegetación"></a></li>
-          <li><a href="img/galeria/atardecer-dorado.jpg" target="_blank" rel="noopener"><img src="img/galeria/atardecer-dorado.jpg" width="900" height="600" loading="lazy" alt="Atardecer dorado sobre el lago, visto entre los arbustos"></a></li>
-          <li><a href="img/galeria/amanecer-lago.jpg" target="_blank" rel="noopener"><img src="img/galeria/amanecer-lago.jpg" width="900" height="600" loading="lazy" alt="El sol saliendo entre los cerros y reflejándose en el lago"></a></li>
-          <li><a href="img/galeria/atardecer-rojo.jpg" target="_blank" rel="noopener"><img src="img/galeria/atardecer-rojo.jpg" width="900" height="589" loading="lazy" alt="Cielo rojo al atardecer sobre el lago Lanalhue"></a></li>
-          <li><a href="img/galeria/volcanes-nahuelbuta.jpg" target="_blank" rel="noopener"><img src="img/galeria/volcanes-nahuelbuta.jpg" width="900" height="411" loading="lazy" alt="Persona de pie en un cerro con volcanes nevados en el horizonte"></a></li>
+          <!-- 3.ª fila: náutica -->
+          <li><a href="img/galeria/velero-amarrado.jpg" target="_blank" rel="noopener"><img src="img/galeria/velero-amarrado.jpg" width="960" height="720" loading="lazy" alt="Velero amarrado en el lago Lanalhue frente a los cerros"></a></li>
+          <li><a href="img/galeria/velero-y-kayaks.jpg" target="_blank" rel="noopener"><img src="img/galeria/velero-y-kayaks.jpg" width="1200" height="900" loading="lazy" alt="Velero y kayaks en el lago Lanalhue en un día despejado"></a></li>
+          <li><a href="img/galeria/kayak-en-el-lago.jpg" target="_blank" rel="noopener"><img src="img/galeria/kayak-en-el-lago.jpg" width="1200" height="900" loading="lazy" alt="Dos personas remando en kayak por el lago, con un velero al fondo"></a></li>
+          <li><a href="img/galeria/peluches-muelle.jpg" target="_blank" rel="noopener"><img src="img/galeria/peluches-muelle.jpg" width="1200" height="900" loading="lazy" alt="Dos osos de peluche sentados en el muelle mirando el lago y un velero"></a></li>
+          <!-- 4.ª fila: cabañas -->
+          <li><a href="img/galeria/cabanas-en-el-bosque.jpg" target="_blank" rel="noopener"><img src="img/galeria/cabanas-en-el-bosque.jpg" width="900" height="1200" loading="lazy" alt="Dos cabañas de madera entre el bosque nativo"></a></li>
+          <li><a href="img/galeria/cabana-living-terraza.jpg" target="_blank" rel="noopener"><img src="img/galeria/cabana-living-terraza.jpg" width="1200" height="900" loading="lazy" alt="Living de una cabaña con estufa a leña y ventanal a la terraza con vista al lago"></a></li>
+          <li><a href="img/galeria/cabana-dormitorio.jpg" target="_blank" rel="noopener"><img src="img/galeria/cabana-dormitorio.jpg" width="1200" height="900" loading="lazy" alt="Dormitorio de una cabaña con cama de dos plazas y paredes de madera"></a></li>
+          <li><a href="img/galeria/dormitorio-vista-lago.jpg" target="_blank" rel="noopener"><img src="img/galeria/dormitorio-vista-lago.jpg" width="1200" height="900" loading="lazy" alt="Dormitorio con ventanas hacia el lago Lanalhue"></a></li>
         </ul>
+        <p class="galeria__instagram">Para ver más fotos y videos, ingrese a nuestro Instagram <a href="https://www.instagram.com/licahuehotel/" target="_blank" rel="noopener">@licahuehotel</a></p>
       </div>
 
+      <!-- ================================================================
+           Testimonios: DESACTIVADOS a pedido del hotel (16-09-2026).
+
+           No se borraron porque son reseñas reales de Google y volver a
+           juntarlas cuesta. Para reactivarlos, quitar estas dos líneas de
+           comentario. Ojo: antes de publicarlos hay que confirmar con el hotel
+           que se pueden mostrar con nombre y apellido.
+           ================================================================ -->
+      <!--
       <div class="testimonios">
         <h3 class="testimonios__titulo">Qué dicen nuestros clientes</h3>
         <div class="testimonios__lista">
@@ -647,6 +722,7 @@
 
         </div>
       </div>
+      -->
 
     </div>
   </section>
@@ -710,7 +786,7 @@
 
       <h2 class="seccion__titulo" id="t-contacto">Contacto</h2>
       <p class="seccion__bajada">
-        Escríbanos o llámenos para consultas y reservas. Respondemos todos los días.
+        Las reservas se hacen y se confirman por WhatsApp. Para cualquier consulta, llámenos.
       </p>
 
       <div class="contacto">
@@ -737,8 +813,9 @@
               <svg class="icono" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3.7.9a1.3 1.3 0 0 0-1.8.2L1 2.3C.3 3.2.2 4.4.7 5.4c1.9 4 5.1 7.2 9.1 9.1 1 .5 2.2.4 3.1-.3l1.2-.9a1.3 1.3 0 0 0 .2-1.8l-1.7-2.2a1.3 1.3 0 0 0-1.6-.4l-1.6.8-3.6-3.6.8-1.6a1.3 1.3 0 0 0-.4-1.6L3.7.9z"/></svg>
             </span>
             <div>
-              <h3 class="dato__titulo">Recepción</h3>
+              <h3 class="dato__titulo">Teléfono</h3>
               <p class="dato__valor"><a href="tel:+56997797188">+56 9 9779 7188</a></p>
+              <p class="dato__nota">Cualquier consulta se puede hacer por teléfono.</p>
             </div>
           </div>
 
@@ -749,17 +826,7 @@
             <div>
               <h3 class="dato__titulo">WhatsApp</h3>
               <p class="dato__valor"><a href="https://wa.me/56997797188" target="_blank" rel="noopener">+56 9 9779 7188</a></p>
-              <p class="dato__nota">Es el medio por el que el hotel toma las reservas.</p>
-            </div>
-          </div>
-
-          <div class="dato">
-            <span class="dato__icono">
-              <svg class="icono" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M1 3h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm7 5.6L14.4 4.4H1.6L8 8.6zM1.4 5.6V11.6h13.2V5.6L8 10.1 1.4 5.6z"/></svg>
-            </span>
-            <div>
-              <h3 class="dato__titulo">Correo</h3>
-              <p class="dato__valor"><a href="mailto:contacto@licahue.cl">contacto@licahue.cl</a></p>
+              <p class="dato__nota">Por aquí se hacen y se confirman las reservas.</p>
             </div>
           </div>
 
@@ -778,14 +845,20 @@
         </div>
 
         <div class="contacto__acciones">
-          <a class="boton boton--whatsapp" href="https://wa.me/56997797188?text=Hola%2C%20quiero%20consultar%20por%20disponibilidad" target="_blank" rel="noopener">
+          <a class="boton boton--whatsapp" href="https://wa.me/56997797188?text=Hola%2C%20quiero%20hacer%20una%20reserva" target="_blank" rel="noopener">
             <svg class="icono" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 1.8a8.2 8.2 0 1 1-4.2 15.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8zm-3.1 4c-.2 0-.5 0-.7.4-.3.4-1 1-1 2.3s1 2.7 1.2 2.9c.1.2 2 3.1 4.9 4.2 2.4.9 2.9.8 3.4.7.5 0 1.6-.6 1.8-1.3.2-.6.2-1.2.2-1.3l-.6-.3-1.7-.8c-.2-.1-.4-.2-.6.1l-.8 1c-.2.2-.3.2-.5.1-.3-.1-1.2-.5-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.2 0-.4.1-.5l.4-.5.3-.5v-.5l-.8-1.9c-.2-.5-.4-.4-.6-.5h-.4z"/></svg>
-            <span>Escribir por WhatsApp</span>
+            <span>Reservar por WhatsApp</span>
+          </a>
+          <a class="boton boton--llamar" href="tel:+56997797188">
+            <svg class="icono" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3.7.9a1.3 1.3 0 0 0-1.8.2L1 2.3C.3 3.2.2 4.4.7 5.4c1.9 4 5.1 7.2 9.1 9.1 1 .5 2.2.4 3.1-.3l1.2-.9a1.3 1.3 0 0 0 .2-1.8l-1.7-2.2a1.3 1.3 0 0 0-1.6-.4l-1.6.8-3.6-3.6.8-1.6a1.3 1.3 0 0 0-.4-1.6L3.7.9z"/></svg>
+            <span>Llamar para consultas</span>
           </a>
         </div>
 
-        <!-- El mapa cumple dos funciones: equilibra la columna con la del
-             formulario, y resuelve un problema real: el hotel está en el km 4 de
+      </div>
+
+        <!-- El mapa va a la derecha de los datos (pedido del hotel, 17-11-2026) y
+             resuelve un problema real: el hotel está en el km 4 de
              un camino rural, sin número de casa.
 
              La URL sale del botón «Compartir -> Insertar un mapa» de Google Maps,
@@ -805,9 +878,10 @@
             title="Ubicación de Hotel y Cabañas Licahue en el mapa"></iframe>
         </div>
 
-      </div>
-
-      <div class="escribenos" data-formulario="activo">
+      <!-- Formulario OCULTO a pedido del hotel (17-11-2026): las reservas van por
+           WhatsApp. Para volver a mostrarlo, quitar el atributo hidden de este div
+           y devolver el mapa a la columna izquierda, debajo de los botones. -->
+      <div class="escribenos" data-formulario="activo" hidden>
         <h3 class="escribenos__titulo">Déjenos un mensaje</h3>
         <p>
         Cuéntenos las fechas y cuántas personas son, y le respondemos con disponibilidad y
@@ -824,10 +898,10 @@
 
              ACTIVADO el 15-09-2026. La cadena rara del action NO es un codigo
              de relleno: es el "invisible email" que entrega FormSubmit al
-             confirmar la casilla, y apunta a contacto@licahue.cl. Esta puesta
-             a proposito para que la direccion del hotel no quede escrita en
-             el codigo de la pagina, donde la recogen los robots de spam.
-             No reemplazarla por el correo. El detalle esta en NOTAS.md.
+             confirmar la casilla. NO reemplazarla por el correo: esta puesta
+             justamente para que la direccion del hotel no quede escrita en el
+             codigo de la pagina. A que casilla corresponde esta anotado en
+             NOTAS.md, que no se publica.
              ---------------------------------------------------------------- -->
         <form class="formulario" action="https://formsubmit.co/e0aa6c1982ed115f954fa8fc5b76fe89" method="POST">
 
@@ -953,7 +1027,10 @@
       <ul class="pie__lista">
         <li><a class="pie__enlace" href="#inicio"><svg class="icono" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2" y="7.2" width="12" height="1.6"/></svg><span>Inicio</span></a></li>
         <li><a class="pie__enlace" href="#tarifas"><svg class="icono" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2" y="7.2" width="12" height="1.6"/></svg><span>Tarifas</span></a></li>
+        <li><a class="pie__enlace" href="#habitaciones"><svg class="icono" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2" y="7.2" width="12" height="1.6"/></svg><span>Habitaciones</span></a></li>
         <li><a class="pie__enlace" href="#nosotros"><svg class="icono" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2" y="7.2" width="12" height="1.6"/></svg><span>Nosotros</span></a></li>
+        <li><a class="pie__enlace" href="#imagenes"><svg class="icono" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2" y="7.2" width="12" height="1.6"/></svg><span>Imágenes</span></a></li>
+        <li><a class="pie__enlace" href="#imperdibles"><svg class="icono" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2" y="7.2" width="12" height="1.6"/></svg><span>Imperdibles</span></a></li>
         <li><a class="pie__enlace" href="#contacto"><svg class="icono" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2" y="7.2" width="12" height="1.6"/></svg><span>Contacto</span></a></li>
       </ul>
     </nav>
@@ -986,14 +1063,6 @@
             <span>+56 9 9779 7188</span>
           </a>
         </li>
-        <li>
-          <a class="pie__enlace" href="mailto:contacto@licahue.cl">
-            <svg class="icono" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-              <path d="M1 3h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm7 5.6L14.4 4.4H1.6L8 8.6zM1.4 5.6V11.6h13.2V5.6L8 10.1 1.4 5.6z"/>
-            </svg>
-            <span>contacto@licahue.cl</span>
-          </a>
-        </li>
       </ul>
     </div>
 
@@ -1002,7 +1071,7 @@
 
 <div class="pie-legal">
   <div class="contenedor">
-    <p>Hotel Licahue | Todos los derechos reservados.</p>
+    <p>Hotel Licahue | Todos los derechos reservados. © Vyasa Servicios y Asesorías</p>
   </div>
 </div>
 

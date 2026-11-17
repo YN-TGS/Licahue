@@ -88,7 +88,7 @@
           return '<div class="oferta__valor">' +
                    '<span class="oferta__nombre">' + esc(v.nombre) + '</span>' +
                    '<p class="oferta__detalle">' + esc(v.detalle) + '</p>' +
-                   (v.normal ? '<p class="oferta__normal">Valor normal <s>' + esc(precio(v.normal)) + '</s></p>' : '') +
+                   (v.normal ? '<p class="oferta__normal">Valor normal <span>' + esc(precio(v.normal)) + '</span></p>' : '') +
                    '<p class="oferta__total' + (v.normal || o.destacada ? ' oferta__total--rebaja' : '') + '">' +
                      (v.normal ? '<span class="vo">Valor oferta: </span>' : '') + esc(precio(v.total)) + '</p>' +
                  '</div>';

@@ -640,18 +640,17 @@ html.visor-abierto .wa-flotante { display: none; }
 
 /* Precio rebajado (17-11-2026, pedido de Ernesto: «el valor real y en rojo la oferta»).
    El rojo va de FONDO con números blancos, no como letra roja sobre negro, que se
-   lee mal: blanco sobre #c62828 da 5,6:1 de contraste. El valor normal va tachado
-   en gris claro (7:1 sobre el negro del panel). */
+   lee mal: blanco sobre #c62828 da 5,6:1 de contraste. El valor normal va SIN
+   tachar (pedido de Ernesto), en gris claro (7:1 sobre el negro del panel). */
 .oferta__normal {
   margin: 8px 0 0;
   font-size: 14px;
   color: rgba(255, 255, 255, .72);
 }
-.oferta__normal s {
+.oferta__normal span {
   font-size: 16px;
-  font-weight: 500;
-  text-decoration-thickness: 2px;
-  text-decoration-color: rgba(255, 255, 255, .85);
+  font-weight: 600;
+  color: var(--blanco);
 }
 
 .oferta__total--rebaja {
